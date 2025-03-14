@@ -1,92 +1,102 @@
 import dash
-from dash import html, dcc
+from dash import html, dcc, callback_context, no_update
 import dash_bootstrap_components as dbc
 from dash.dependencies import Input, Output, State
 import sqlite3
-from datetime import datetime
 import os
-from urllib.parse import quote
-from flask import redirect
+from flask import session, request
+import uuid
 
-app = dash.Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP], suppress_callback_exceptions=True)
-server = app.server  # Expose the server for redirects
+# Initialize app with session management
+app = dash.Dash(
+    __name__,
+    external_stylesheets=[dbc.themes.BOOTSTRAP],
+    assets_folder='assets',
+    suppress_callback_exceptions=True
+)
+server = app.server
+server.secret_key = 'USDH'  # Keep using the same secret key
 
-# Initialize SQLite database
+# Ensure the database directory exists
+if not os.path.exists('data'):
+    os.makedirs('data')
+
+# Initialize database
 def init_db():
-    conn = sqlite3.connect('users.db')
-    c = conn.cursor()
-
-    # Create the table with correct column names
-    c.execute('''CREATE TABLE IF NOT EXISTS users
-                 (id INTEGER PRIMARY KEY AUTOINCREMENT,
-                  username TEXT UNIQUE,
-                  email TEXT,
-                  password TEXT,
-                  role TEXT,
-                  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP)''')
+    conn = sqlite3.connect('data/USDH.db')
+    cursor = conn.cursor()
+    
+    # Create users table
+    cursor.execute('''
+    CREATE TABLE IF NOT EXISTS users (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        username TEXT UNIQUE NOT NULL,
+        email TEXT UNIQUE NOT NULL,
+        password TEXT NOT NULL,
+        role TEXT NOT NULL
+    )
+    ''')
+    
     conn.commit()
     conn.close()
 
+# Initialize the database
 init_db()
 
-# Login/Signup Layout
-auth_layout = html.Div([
-    html.Canvas(id="matrixCanvas", style={
-        'position': 'absolute', 'top': 0, 'left': 0, 
-        'width': '100vw', 'height': '100vh', 'zIndex': -1
-    }),
-    
-    html.Div([  
-        html.Div([
-           html.Div(html.Img(src="static/images/logo.png", className="logo"), style={'marginRight': '15px'}),
+# Login/Register Page (Main Page)
+def login_layout():
+    return html.Div([  
+        html.Canvas(id="matrixCanvas", style={
+            'position': 'absolute', 'top': 0, 'left': 0, 
+            'width': '100vw', 'height': '100vh', 'zIndex': -1
+        }),
+        
+        html.Div([  
+            html.Div([
+               html.Div(html.Img(src="/static/images/logo.png", className="logo"), style={'marginRight': '15px'}),
 
-            html.H4("Unified Skill Development Hub", className="text-center mb-3", style={
-                'color': '#0ff',
-                'text-align': 'center',
-                'font-size': '1 rem',
-                'margin': '0',
-                'textShadow': '0 0 10px #0ff, 0 0 20px #0ff'
-            })
-        ], className="header-container"),
+                html.H4("Unified Skill Development Hub", className="text-center mb-3", style={
+                    'color': '#0ff',
+                    'text-align': 'center',
+                    'font-size': '1 rem',
+                    'margin': '0',
+                    'textShadow': '0 0 10px #0ff, 0 0 20px #0ff'
+                })
+            ], className="header-container"),
 
-        dbc.Tabs([
-            dbc.Tab(label="Login", tab_id="login"),
-            dbc.Tab(label="Sign Up", tab_id="signup"),
-        ], id="auth-tabs", active_tab="login", className="mb-3"),
+            dbc.Tabs([
+                dbc.Tab(label="Login", tab_id="login"),
+                dbc.Tab(label="Sign Up", tab_id="signup"),
+            ], id="auth-tabs", active_tab="login", className="mb-3"),
 
-        html.Div(id="auth-box"),
-        html.Div(id='output-message')
-    ], className="auth-container p-4 rounded"),
-], className="main-bg")
+            html.Div(id="auth-box"),
+            
+            # Notification area for messages
+            html.Div(id="notification-area", className="mt-3")
+        ], className="auth-container p-4 rounded"),
+    ], className="main-bg")
 
-# Main app layout
+# App layout with URL routing
 app.layout = html.Div([
-    dcc.Location(id='url', refresh=True),  # Changed refresh to True to allow for actual redirects
-    html.Div(id='page-content')
+    dcc.Location(id='url', refresh=False),
+    html.Div(id='page-content'),
+    # We'll still use dcc.Store, but we'll now synchronize it with Flask's session
+    dcc.Store(id='session-store', storage_type='session')
 ])
 
-@app.callback(
-    Output('page-content', 'children'),
-    [Input('url', 'pathname')]
-)
-def display_page(pathname):
-    if pathname == '/':
-        return auth_layout
-    # For other paths, we'll use Flask redirects instead of Dash layouts
-    return html.Div("Redirecting...")
-
+# Callback for switching between login and signup forms
 @app.callback(
     Output("auth-box", "children"),
-    [Input("auth-tabs", "active_tab")]
+    Input("auth-tabs", "active_tab")
 )
 def switch_auth_form(active_tab):
     if active_tab == "signup":
         return html.Div([
             html.H4("Sign Up", className="text-center mb-3", style={'color': '#0ff'}),
-            dcc.Input(id='signup-username', placeholder="Username", type="text", className="cyber-input form-control mb-2"),
-            dcc.Input(id='signup-email', placeholder="Email", type="email", className="cyber-input form-control mb-2"),
-            dcc.Input(id='signup-password', placeholder="Password", type="password", className="cyber-input form-control mb-2"),
-            dcc.Input(id='signup-confirm', placeholder="Confirm Password", type="password", className="cyber-input form-control mb-2"),
+            dcc.Input(id="signup-username", placeholder="Username", type="text", className="cyber-input form-control mb-2"),
+            dcc.Input(id="signup-email", placeholder="Email", type="email", className="cyber-input form-control mb-2"),
+            dcc.Input(id="signup-password", placeholder="Password", type="password", className="cyber-input form-control mb-2"),
+            dcc.Input(id="signup-confirm-password", placeholder="Confirm Password", type="password", className="cyber-input form-control mb-2"),
             
             dcc.Dropdown(
                 id='signup-role',
@@ -98,13 +108,13 @@ def switch_auth_form(active_tab):
                 className="cyber-dropdown form-control mb-3"
             ),
             
-            html.Button("Register", id='signup-button', className="cyber-button btn w-100 mt-3")
+            html.Button("Register", id="register-button", className="cyber-button btn w-100 mt-3")
         ])
 
     return html.Div([
         html.H4("Log In", className="text-center mb-3", style={'color': '#0ff'}),
-        dcc.Input(id='login-username', placeholder="Username", type="text", className="cyber-input form-control mb-2"),
-        dcc.Input(id='login-password', placeholder="Password", type="password", className="cyber-input form-control mb-2"),
+        dcc.Input(id="login-username", placeholder="Username", type="text", className="cyber-input form-control mb-2"),
+        dcc.Input(id="login-password", placeholder="Password", type="password", className="cyber-input form-control mb-2"),
         
         dcc.Dropdown(
             id='login-role',
@@ -116,79 +126,219 @@ def switch_auth_form(active_tab):
             className="cyber-dropdown form-control mb-3"
         ),
         
-        html.Button("Login", id='login-button', className="cyber-button btn w-100 mt-3")
+        html.Button("Login", id="login-button", className="cyber-button btn w-100 mt-3")
     ])
 
-# Add Flask routes for external redirects
-@server.route('/admin-dashboard')
-def admin_redirect():
-    return redirect('/admin_dashboard.py')  # Redirects to separate admin dashboard file
-
-@server.route('/user-dashboard')
-def user_redirect():
-    return redirect('/user_dashboard.py')  # Redirects to separate user dashboard file
-
+# Sign Up Callback
 @app.callback(
-    [Output('url', 'pathname'),
-     Output('output-message', 'children')],
-    [Input('signup-button', 'n_clicks')],
-    [State('signup-username', 'value'),
-     State('signup-email', 'value'),
-     State('signup-password', 'value'),
-     State('signup-confirm', 'value'),
-     State('signup-role', 'value')]
+    [Output("notification-area", "children"),
+     Output("session-store", "data")],
+    [Input("register-button", "n_clicks")],
+    [State("signup-username", "value"),
+     State("signup-email", "value"),
+     State("signup-password", "value"),
+     State("signup-confirm-password", "value"),
+     State("signup-role", "value"),
+     State("session-store", "data")]
 )
-def handle_signup(n_clicks, username, email, password, confirm, role):
+def register_user(n_clicks, username, email, password, confirm_password, role, session_data):
     if not n_clicks:
-        return dash.no_update, dash.no_update
+        return html.Div(), session_data or {}
     
-    if not all([username, email, password, confirm, role]):
-        return dash.no_update, html.Div('All fields are required', style={'color': 'red'})
+    if not all([username, email, password, confirm_password, role]):
+        return html.Div("All fields are required", style={"color": "red"}), session_data or {}
     
-    if password != confirm:
-        return dash.no_update, html.Div('Passwords do not match', style={'color': 'red'})
-    
-    conn = sqlite3.connect('users.db')
-    c = conn.cursor()
+    if password != confirm_password:
+        return html.Div("Passwords do not match", style={"color": "red"}), session_data or {}
     
     try:
-        c.execute("INSERT INTO users (username, email, password, role) VALUES (?, ?, ?, ?)",
-                 (username, email, password, role))
+        conn = sqlite3.connect('data/users.db')
+        cursor = conn.cursor()
+        
+        # Check if username or email already exists
+        cursor.execute("SELECT * FROM users WHERE username = ? OR email = ?", (username, email))
+        user = cursor.fetchone()
+        
+        if user:
+            return html.Div("Username or email already exists", style={"color": "red"}), session_data or {}
+        
+        # Insert new user
+        cursor.execute("INSERT INTO users (username, email, password, role) VALUES (?, ?, ?, ?)",
+                      (username, email, password, role))
         conn.commit()
-        return f'/{role}-dashboard', html.Div('Registration successful!', style={'color': 'green'})
-    except sqlite3.IntegrityError:
-        return dash.no_update, html.Div('Username already exists', style={'color': 'red'})
-    finally:
         conn.close()
+        
+        # Update session data
+        new_session_data = {
+            'username': username,
+            'role': role,
+            'logged_in': True
+        }
+        
+        # Update Flask session
+        for key, value in new_session_data.items():
+            session[key] = value
+        
+        return html.Div("Registration successful! Please log in.", style={"color": "green"}), new_session_data
+    
+    except Exception as e:
+        return html.Div(f"An error occurred: {str(e)}", style={"color": "red"}), session_data or {}
 
+# Login Callback - Now synchronizing Flask session with Dash store
 @app.callback(
-    [Output('url', 'pathname', allow_duplicate=True),
-     Output('output-message', 'children', allow_duplicate=True)],
-    [Input('login-button', 'n_clicks')],
-    [State('login-username', 'value'),
-     State('login-password', 'value'),
-     State('login-role', 'value')],
+    [Output("notification-area", "children", allow_duplicate=True),
+     Output("session-store", "data", allow_duplicate=True),
+     Output("url", "pathname")],
+    [Input("login-button", "n_clicks")],
+    [State("login-username", "value"),
+     State("login-password", "value"),
+     State("login-role", "value"),
+     State("session-store", "data")],
     prevent_initial_call=True
 )
-def handle_login(n_clicks, username, password, role):
+def login_user(n_clicks, username, password, role, session_data):
     if not n_clicks:
-        return dash.no_update, dash.no_update
-    
-    if not all([username, password, role]):
-        return dash.no_update, html.Div('All fields are required', style={'color': 'red'})
-    
-    conn = sqlite3.connect('users.db')
-    c = conn.cursor()
-    
-    c.execute("SELECT * FROM users WHERE username = ? AND password = ? AND role = ?",
-             (username, password, role))
-    user = c.fetchone()
-    conn.close()
-    
-    if user:
-        return f'/{role}-dashboard', html.Div('Login successful!', style={'color': 'green'})
+        return no_update, no_update, no_update
+        
+    try:
+        # Validate login credentials
+        conn = sqlite3.connect('data/users.db')
+        cursor = conn.cursor()
+        cursor.execute("SELECT * FROM users WHERE username=? AND password=? AND role=?", 
+                      (username, password, role))
+        user = cursor.fetchone()
+        conn.close()
+
+        if user:
+            # Prepare session data
+            new_session_data = {
+                'logged_in': True,
+                'username': username,
+                'role': role,
+                'user_id': user[0]
+            }
+            
+            # Update Flask session
+            for key, value in new_session_data.items():
+                session[key] = value
+            
+            # Redirect based on role
+            redirect_path = "/admin" if role == "admin" else "/user"
+            return (
+                html.Div("Login successful!", style={"color": "green"}),
+                new_session_data,  # Update Dash store
+                redirect_path
+            )
+        else:
+            return (
+                html.Div("Invalid credentials!", style={"color": "red"}),
+                session_data or {},
+                "/"
+            )
+    except Exception as e:
+        return html.Div(f"An error occurred: {str(e)}", style={"color": "red"}), session_data or {}, "/"
+
+# Initialize session - sync Flask session to Dash store on page load
+@app.callback(
+    Output("session-store", "data", allow_duplicate=True),
+    Input("url", "pathname"),
+    State("session-store", "data"),
+    prevent_initial_call=True
+)
+def sync_session_on_navigation(pathname, current_data):
+    # If Flask session has data, synchronize it with Dash store
+    if 'logged_in' in session and session['logged_in']:
+        return {
+            'logged_in': session['logged_in'],
+            'username': session.get('username', ''),
+            'role': session.get('role', ''),
+            'user_id': session.get('user_id', '')
+        }
+    # Return current data or empty dict if no session
+    return current_data or {}
+
+# URL Routing Callback
+@app.callback(
+    Output("page-content", "children"),
+    [Input("url", "pathname")],
+    [State("session-store", "data")]
+)
+def display_page(pathname, session_data):
+    # Check Flask session first
+    if 'logged_in' in session and session['logged_in']:
+        # Use Flask session data
+        username = session.get('username', 'User')
+        role = session.get('role', '')
+    elif session_data and session_data.get('logged_in'):
+        # Fall back to Dash store if Flask session is empty
+        username = session_data.get('username', 'User')
+        role = session_data.get('role', '')
     else:
-        return dash.no_update, html.Div('Invalid credentials', style={'color': 'red'})
+        # Not logged in
+        return login_layout()
+    
+    
+    # Import dashboards
+    from user_dashboard import user_dashboard
+    from admin_dashboard import admin_dashboard
+    from manage_courses import manage_courses_layout
+    from manage_resources import manage_resources_layout
+    from manage_schemes import manage_schemes_layout
+    
+    # Admin dashboard routes
+    if pathname == "/user" and (role == 'user' or session.get('role') == 'user'):
+        return user_dashboard()
+    elif pathname == "/admin" and (role == 'admin' or session.get('role') == 'admin'):
+        return admin_dashboard()
+    elif pathname == "/manage-courses" and (role == 'admin' or session.get('role') == 'admin'):
+        return manage_courses_layout()
+    elif pathname == "/manage-resources" and (role == 'admin' or session.get('role') == 'admin'):
+        return manage_resources_layout()
+    elif pathname == "/manage-schemes" and (role == 'admin' or session.get('role') == 'admin'):
+        return manage_schemes_layout()
+    elif pathname == "/analytics" and (role == 'admin' or session.get('role') == 'admin'):
+        return html.Div("Analytics Dashboard Coming Soon", style={'color': '#0ff'})
+    elif pathname == "/logout":
+        return login_layout()
+    else:
+        return login_layout()
+
+# Improved logout callback
+@app.callback(
+    [Output("session-store", "clear_data"),
+     Output("url", "pathname", allow_duplicate=True)],
+    [Input("url", "pathname")],
+    prevent_initial_call=True
+)
+def logout(pathname):
+    if pathname == "/logout":
+        # Clear Flask session
+        session.clear()
+        # Clear Dash store and redirect to login
+        return True, "/"
+    return False, no_update
+
+@app.callback(
+          Output("course-modal", "is_open"),
+     [Input("add-ug-pg-course-btn", "n_clicks"),
+      Input("add-school-course-btn", "n_clicks"),
+      Input("edit-ug-pg-course-btn", "n_clicks"),
+      Input("edit-school-course-btn", "n_clicks"),
+      Input("save-course-btn", "n_clicks"),
+      Input("cancel-course-btn", "n_clicks")],
+     [State("course-modal", "is_open")]
+ )
+def toggle_course_modal(add_ug_pg, add_school, edit_ug_pg, edit_school, save, cancel, is_open):
+     ctx = callback_context
+     if not ctx.triggered:
+         return is_open
+     else:
+         button_id = ctx.triggered[0]["prop_id"].split(".")[0]
+         if button_id in ["add-ug-pg-course-btn", "add-school-course-btn", "edit-ug-pg-course-btn", "edit-school-course-btn"]:
+             return True
+         elif button_id in ["save-course-btn", "cancel-course-btn"]:
+             return False
+         return is_open
 
 app.index_string = '''
 <!DOCTYPE html>
@@ -198,215 +348,7 @@ app.index_string = '''
         <title>USDH</title>
         {%favicon%}
         {%css%}
-        <style>
-            body {
-                margin: 0;
-                padding: 0;
-                background: #000;
-                font-family: 'Orbitron', sans-serif;
-                color: #0ff;
-            }
-            
-            .main-bg {
-                position: relative;
-                height: 100vh;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                background-color: transparent;
-            }
-            
-            .auth-container {
-                width: 400px;
-                max-width: 90%;
-                text-align: center;
-                background: rgba(0, 10, 20, 0.8);
-                border-radius: 15px;
-                box-shadow: 0 0 20px #0ff,
-                           inset 0 0 20px #0ff;
-                border: 2px solid #0ff;
-                z-index: 1;
-                backdrop-filter: blur(10px);
-                animation: container-glow 2s infinite alternate;
-            }
-            
-            @keyframes container-glow {
-                from {
-                    box-shadow: 0 0 20px #0ff,
-                               inset 0 0 20px #0ff;
-                }
-                to {
-                    box-shadow: 0 0 30px #0ff,
-                               inset 0 0 30px #0ff;
-                }
-            }
-
-            .header-container {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                margin-bottom: 20px;
-                padding: 10px;
-                background: rgba(0, 255, 255, 0.1);
-                border-radius: 10px;
-                border: 1px solid #0ff;
-            }
-
-            .logo {
-                width: 50px;
-                height: 50px;
-                border-radius: 50%;
-                border: 2px solid #0ff;
-                box-shadow: 0 0 10px #0ff;
-                animation: logo-pulse 2s infinite alternate;
-            }
-            
-            @keyframes logo-pulse {
-                from { transform: scale(1); }
-                to { transform: scale(1.1); }
-            }
-            
-            .cyber-input {
-                padding: 15px;
-                border-radius: 5px;
-                margin-bottom: 15px;
-                width: 100%;
-                background: rgba(0, 20, 30, 0.8) !important;
-                border: 1px solid #0ff !important;
-                color: #0ff !important;
-                transition: all 0.3s ease;
-                animation: input-glow 2s infinite alternate;
-            }
-            
-            @keyframes input-glow {
-                from { box-shadow: 0 0 5px #0ff; }
-                to { box-shadow: 0 0 15px #0ff; }
-            }
-            
-            .cyber-input:focus {
-                box-shadow: 0 0 20px rgba(0, 255, 255, 0.7);
-                background: rgba(0, 20, 30, 0.9) !important;
-                outline: none;
-                transform: scale(1.02);
-            }
-            
-            .cyber-input::placeholder {
-                color: rgba(0, 255, 255, 0.7);
-            }
-
-            /* Enhanced Dropdown Styling */
-            .cyber-dropdown {
-                background: rgba(0, 0, 0, 0.95) !important;
-                border: 2px solid #000 !important;
-                color: #0ff !important;
-            }
-
-            .cyber-dropdown .Select-control {
-                background: rgba(0, 0, 0, 0.95) !important;
-                border: 2px solid #000 !important;
-                box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
-                transition: all 0.3s ease;
-            }
-
-            .cyber-dropdown .Select-menu-outer {
-                background: rgba(0, 0, 0, 0.95) !important;
-                border: 2px solid #000 !important;
-                color: #0ff !important;
-                box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
-            }
-
-            .cyber-dropdown .Select-option {
-                background: rgba(0, 0, 0, 0.95) !important;
-                color: #0ff !important;
-                padding: 10px;
-            }
-
-            .cyber-dropdown .Select-option:hover {
-                background: rgba(0, 255, 255, 0.2) !important;
-                cursor: pointer;
-            }
-
-            .cyber-dropdown .Select-value-label {
-                color: #0ff !important;
-            }
-
-            .cyber-dropdown .Select-placeholder {
-                color: #0ff !important;
-            }
-
-            /* Button styling with constant glow */
-            .cyber-button {
-                background: rgba(0, 20, 30, 0.8);
-                color: #0ff;
-                border: 2px solid #0ff;
-                padding: 10px 20px;
-                font-size: 1.1em;
-                cursor: pointer;
-                transition: all 0.3s ease;
-                text-transform: uppercase;
-                letter-spacing: 2px;
-                position: relative;
-                overflow: hidden;
-                animation: button-glow 2s infinite alternate;
-            }
-            
-            @keyframes button-glow {
-                from {
-                    box-shadow: 0 0 5px #0ff,
-                               inset 0 0 5px #0ff;
-                }
-                to {
-                    box-shadow: 0 0 15px #0ff,
-                               inset 0 0 10px #0ff;
-                }
-            }
-            
-            .cyber-button:hover {
-                background-color: #0ff;
-                color: #000;
-                box-shadow: 0 0 20px #0ff;
-                transform: scale(1.05);
-            }
-            
-            .cyber-button:active {
-                background-color: #0ff;
-                color: #000;
-                box-shadow: 0 0 30px #0ff;
-                transform: scale(0.98);
-            }
-
-            .nav-tabs {
-                border-bottom: 1px solid #0ff;
-            }
-            
-            .nav-tabs .nav-link {
-                color: #0ff;
-                background: rgba(0, 20, 30, 0.6);
-                border: 1px solid #0ff;
-                margin-right: 5px;
-                transition: all 0.3s ease;
-            }
-            
-            .nav-tabs .nav-link:hover {
-                background: rgba(0, 255, 255, 0.2);
-                border: 1px solid #0ff;
-                color: #fff;
-                box-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
-            }
-            
-            .nav-tabs .nav-link.active {
-                background: rgba(0, 255, 255, 0.2);
-                color: #fff;
-                border: 1px solid #0ff;
-                font-weight: bold;
-                box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
-            }
-
-            /* Remove any white backgrounds */
-            * {
-                background-color: transparent;
-            }
-        </style>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     </head>
     <body>
         {%app_entry%}
@@ -424,6 +366,8 @@ app.clientside_callback(
     """  
     function() {  
         const canvas = document.getElementById('matrixCanvas');  
+        if (!canvas) return;
+        
         const ctx = canvas.getContext('2d');  
         const matrixChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ123456789@#$%^&*()';  
         const fontSize = 16;  
@@ -434,6 +378,7 @@ app.clientside_callback(
         const drops = Array(columns).fill(1);  
 
         function resizeCanvas() {  
+            if (!canvas) return;
             canvas.width = window.innerWidth;  
             canvas.height = window.innerHeight;  
         }  
@@ -441,6 +386,7 @@ app.clientside_callback(
         window.addEventListener('resize', resizeCanvas);  
 
         function draw() {  
+            if (!canvas) return;
             ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';  
             ctx.fillRect(0, 0, canvas.width, canvas.height);  
             ctx.fillStyle = '#0ff';  
@@ -459,7 +405,8 @@ app.clientside_callback(
             });  
         }  
 
-        setInterval(draw, 50);  
+        const interval = setInterval(draw, 50);
+        return () => clearInterval(interval);
     }  
     """,  
     Output('matrixCanvas', 'children'),  
