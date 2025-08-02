@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; line-height: 1.6; margin: 40px; }
+        .header { background-color: #f8f9fa; padding: 20px; border-radius: 5px; margin-bottom: 30px; }
+        .section { margin-bottom: 25px; }
+        .section-title { color: #2c3e50; border-left: 4px solid #3498db; padding-left: 10px; margin-bottom: 15px; }
+        .experience-item { margin-bottom: 20px; }
+        .date { color: #7f8c8d; font-size: 0.9em; }
+        .skills-container { display: flex; flex-wrap: wrap; gap: 10px; }
+        .skill-tag { background-color: #e1f0fa; padding: 5px 10px; border-radius: 15px; font-size: 0.9em; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>{{ personal_info.name }}</h1>
+        <p>{{ personal_info.email }} | {{ personal_info.phone }} | {{ personal_info.location }}</p>
+    </div>
+    
+    <div class="section">
+        <h2 class="section-title">Professional Summary</h2>
+        <p>{{ personal_info.summary }}</p>
+    </div>
+    
+    <div class="section">
+        <h2 class="section-title">Education</h2>
+        {% for edu in education %}
+        <div class="experience-item">
+            <h3>{{ edu.institution }}</h3>
+            <p>{{ edu.degree }}</p>
+            <p class="date">{{ edu.start_date }} - {{ edu.end_date }}</p>
+        </div>
+        {% endfor %}
+    </div>
+    
+    <div class="section">
+        <h2 class="section-title">Work Experience</h2>
+        {% for exp in experience %}
+        <div class="experience-item">
+            <h3>{{ exp.company }}</h3>
+            <p>{{ exp.position }}</p>
+            <p class="date">{{ exp.start_date }} - {{ exp.end_date }}</p>
+            <p>{{ exp.description }}</p>
+        </div>
+        {% endfor %}
+    </div>
+    
+    <div class="section">
+        <h2 class="section-title">Skills</h2>
+        <div class="skills-container">
+            {% for skill in skills %}
+            <span class="skill-tag">{{ skill }}</span>
+            {% endfor %}
+        </div>
+    </div>
+    
+    <div class="section">
+        <h2 class="section-title">Certifications</h2>
+        {% for cert in certifications %}
+        <div class="experience-item">
+            <h3>{{ cert.name }}</h3>
+            <p class="date">Date: {{ cert.date }}</p>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>

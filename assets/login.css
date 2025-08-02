@@ -1,0 +1,1157 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700,800,900');
+
+/* Main Background */
+.main-bg {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #1f2029 0%, #1a237e 100%);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+    line-height: 1.7;
+    color: #ffeba7;
+}
+
+/* Educational Background Elements */
+.education-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.floating-icon {
+    position: absolute;
+    font-size: 2rem;
+    color: rgba(255, 255, 255, 0.15);
+    animation: float 6s infinite ease-in-out;
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+    transition: all 0.3s ease;
+}
+
+/* Extended grid of floating icons */
+.floating-icon:nth-child(1) { top: 5%; left: 5%; animation-delay: 0s; font-size: 1.8rem; }
+.floating-icon:nth-child(2) { top: 15%; left: 25%; animation-delay: 1s; font-size: 2.2rem; }
+.floating-icon:nth-child(3) { top: 25%; left: 45%; animation-delay: 2s; font-size: 1.6rem; }
+.floating-icon:nth-child(4) { top: 35%; left: 65%; animation-delay: 3s; font-size: 2.4rem; }
+.floating-icon:nth-child(5) { top: 45%; left: 85%; animation-delay: 4s; font-size: 2rem; }
+.floating-icon:nth-child(6) { top: 55%; left: 5%; animation-delay: 5s; font-size: 1.7rem; }
+.floating-icon:nth-child(7) { top: 65%; left: 25%; animation-delay: 6s; font-size: 2.1rem; }
+.floating-icon:nth-child(8) { top: 75%; left: 45%; animation-delay: 7s; font-size: 1.9rem; }
+.floating-icon:nth-child(9) { top: 85%; left: 65%; animation-delay: 8s; font-size: 2.3rem; }
+.floating-icon:nth-child(10) { top: 95%; left: 85%; animation-delay: 9s; font-size: 1.8rem; }
+
+/* Additional Skill Icons */
+.floating-icon:nth-child(11) { top: 10%; left: 35%; animation-delay: 1.5s; font-size: 2rem; }
+.floating-icon:nth-child(12) { top: 30%; left: 75%; animation-delay: 2.5s; font-size: 1.8rem; }
+.floating-icon:nth-child(13) { top: 50%; left: 15%; animation-delay: 3.5s; font-size: 2.2rem; }
+.floating-icon:nth-child(14) { top: 70%; left: 55%; animation-delay: 4.5s; font-size: 1.7rem; }
+.floating-icon:nth-child(15) { top: 90%; left: 35%; animation-delay: 5.5s; font-size: 2.1rem; }
+
+@keyframes float {
+    0% { transform: translateY(0) rotate(0deg) scale(1); }
+    50% { transform: translateY(-20px) rotate(5deg) scale(1.1); }
+    100% { transform: translateY(0) rotate(0deg) scale(1); }
+}
+
+/* Enhanced Pattern Overlay */
+.pattern-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        linear-gradient(45deg, rgba(255,255,255,0.05) 25%, transparent 25%),
+        linear-gradient(-45deg, rgba(255,255,255,0.05) 25%, transparent 25%),
+        linear-gradient(45deg, transparent 75%, rgba(255,255,255,0.05) 75%),
+        linear-gradient(-45deg, transparent 75%, rgba(255,255,255,0.05) 75%);
+    background-size: 30px 30px;
+    opacity: 0.8;
+    z-index: 0;
+    animation: patternMove 20s linear infinite;
+}
+
+@keyframes patternMove {
+    0% { background-position: 0 0; }
+    100% { background-position: 60px 60px; }
+}
+
+/* Enhanced Glowing Orbs */
+.glow-orb {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: radial-gradient(circle at center, 
+        rgba(255,255,255,0.15) 0%,
+        rgba(255,255,255,0.08) 50%,
+        transparent 100%);
+    filter: blur(30px);
+    animation: orbFloat 15s infinite ease-in-out;
+}
+
+.glow-orb:nth-child(1) { top: 10%; left: 20%; animation-delay: 0s; width: 250px; height: 250px; }
+.glow-orb:nth-child(2) { top: 60%; right: 30%; animation-delay: 5s; width: 180px; height: 180px; }
+.glow-orb:nth-child(3) { top: 30%; right: 20%; animation-delay: 10s; width: 220px; height: 220px; }
+.glow-orb:nth-child(4) { bottom: 20%; left: 30%; animation-delay: 7s; width: 160px; height: 160px; }
+.glow-orb:nth-child(5) { top: 40%; left: 40%; animation-delay: 3s; width: 190px; height: 190px; }
+
+@keyframes orbFloat {
+    0% { transform: translate(0, 0) scale(1); opacity: 0.5; }
+    50% { transform: translate(30px, 30px) scale(1.2); opacity: 0.8; }
+    100% { transform: translate(0, 0) scale(1); opacity: 0.5; }
+}
+
+/* Login Page Container */
+.login-page-container {
+    display: flex;
+    width: 100%;
+    max-width: 1200px;
+    gap: 2rem;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    z-index: 1;
+}
+
+/* Enhanced Auth Container */
+.main-bg .auth-container {
+    background: rgba(255, 255, 255, 0.95) !important;
+    border-radius: 24px !important;
+    box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.2),
+        0 0 0 1px rgba(255, 255, 255, 0.1),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.2) !important;
+    padding: 40px !important;
+    max-width: 500px !important;
+    min-height: 400px !important;
+    height: auto !important;
+    width: 100% !important;
+    position: relative !important;
+    z-index: 1;
+    flex: 0 0 auto !important;
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    animation: cardFloat 3s ease-in-out infinite;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+}
+
+@keyframes cardFloat {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+}
+
+/* Fix the auth box layout */
+.main-bg .auth-container #auth-box {
+    background: transparent !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    box-shadow: none !important;
+    border: none !important;
+}
+
+/* Modern Switch Tabs */
+.main-bg .auth-container .nav-tabs {
+    background: rgba(26, 35, 126, 0.1) !important;
+    border: none !important;
+    border-radius: 12px !important;
+    padding: 4px !important;
+    display: flex !important;
+    margin-bottom: 30px !important;
+    position: relative !important;
+    gap: 0 !important;
+}
+
+.main-bg .auth-container .nav-tabs .nav-link {
+    border: none !important;
+    color: #666 !important;
+    font-size: 16px !important;
+    font-weight: 500 !important;
+    padding: 10px 20px !important;
+    border-radius: 8px !important;
+    flex: 1 !important;
+    text-align: center !important;
+    transition: all 0.3s ease !important;
+    position: relative !important;
+    z-index: 2 !important;
+    margin: 0 !important;
+}
+
+.main-bg .auth-container .nav-tabs .nav-link.active {
+    color: #1a237e !important;
+    font-weight: 600 !important;
+    background: #ffffff !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Remove the underline from active tab */
+.main-bg .auth-container .nav-tabs .nav-link.active::after {
+    display: none !important;
+}
+
+/* Remove any extra margins from form elements */
+.main-bg .auth-container .form-control {
+    margin-bottom: 1rem !important;
+    background: transparent !important;
+}
+
+/* Ensure notification area doesn't create extra space */
+.main-bg .auth-container #notification-area {
+    margin-top: 1rem !important;
+    padding: 0 !important;
+    background: transparent !important;
+}
+
+/* Remove any extra containers or spacing */
+.main-bg .auth-container > div {
+    background: transparent !important;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Enhanced Tagline Section */
+.tagline-section {
+    flex: 1;
+    max-width: 600px;
+    padding: 2rem;
+    color: #ffffff;
+    animation: fadeIn 0.8s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.tagline-container {
+    text-align: left;
+}
+
+.tagline-title {
+    font-size: 2.8rem;
+    font-weight: 700;
+    margin: 0;
+    line-height: 1.2;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(135deg, #ffffff 0%, #e0e0e0 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.tagline-description {
+    margin-top: 2rem;
+}
+
+.tagline-text {
+    font-size: 1.3rem;
+    line-height: 1.6;
+    margin: 0.5rem 0;
+    opacity: 0.9;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* Header styling */
+.main-bg .auth-container .header-container {
+    margin-bottom: 30px !important;
+    text-align: center !important;
+}
+
+.main-bg .auth-container .header-container h2 {
+    color: #1a237e !important;
+    font-size: 28px !important;
+    font-weight: 700 !important;
+    margin-bottom: 10px !important;
+    letter-spacing: -0.5px !important;
+}
+
+/* Button styling */
+.btn {
+    padding: 12px 24px !important;
+    border-radius: 12px !important;
+    font-weight: 600 !important;
+    font-size: 16px !important;
+    letter-spacing: 0.5px !important;
+    width: 100% !important;
+    border: none !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+    position: relative !important;
+    overflow: hidden !important;
+    background: linear-gradient(135deg, #1a237e 0%, #0d47a1 100%) !important;
+    color: white !important;
+    box-shadow: 0 4px 15px rgba(26, 35, 126, 0.3) !important;
+    height: 50px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin-top: 10px !important;
+}
+
+.btn:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 8px 25px rgba(26, 35, 126, 0.4) !important;
+    background: linear-gradient(135deg, #0d47a1 0%, #1a237e 100%) !important;
+}
+
+/* Enhanced Notification Area */
+.notification-area {
+    margin-top: 1rem;
+    padding: 1rem;
+    border-radius: 8px;
+    background: rgba(248, 249, 250, 0.9);
+    border-left: 3px solid #0d47a1;
+    animation: slideIn 0.3s ease-out;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .login-page-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .tagline-section {
+        text-align: center;
+        max-width: 100%;
+        padding: 1rem;
+    }
+
+    .tagline-container {
+        text-align: center;
+    }
+
+    .tagline-title {
+        font-size: 2.2rem;
+    }
+
+    .floating-icon {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .auth-container {
+        padding: 2rem;
+        margin: 1rem;
+    }
+    
+    .logo {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .tagline-title {
+        font-size: 1.8rem;
+    }
+
+    .tagline-text {
+        font-size: 1.1rem;
+    }
+
+    .glow-orb {
+        opacity: 0.5;
+    }
+}
+
+/* Additional Animations */
+@keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+}
+
+/* Critical Dropdown Fixes */
+.navbar .dropdown,
+.dropdown,
+div.dropdown,
+header .dropdown {
+    position: relative !important;
+    display: inline-block !important;
+}
+
+.navbar .dropdown-menu,
+.dropdown-menu,
+div.dropdown-menu,
+header .dropdown-menu {
+    position: absolute !important;
+    display: block !important;
+    top: 100% !important;
+    right: 0 !important;
+    left: auto !important;
+    background-color: #ffffff !important;
+    border: 1px solid rgba(0, 0, 0, 0.15) !important;
+    border-radius: 4px !important;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2) !important;
+    min-width: 200px !important;
+    padding: 8px 0 !important;
+    margin: 2px 0 0 !important;
+    z-index: 99999 !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+}
+
+.navbar .dropdown-menu.show,
+.dropdown-menu.show,
+div.dropdown-menu.show,
+header .dropdown-menu.show {
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+    pointer-events: auto !important;
+}
+
+.navbar .dropdown-item,
+.dropdown-item,
+div.dropdown-item,
+header .dropdown-item {
+    display: block !important;
+    width: 100% !important;
+    padding: 8px 16px !important;
+    clear: both !important;
+    font-weight: 400 !important;
+    color: #333333 !important;
+    text-align: inherit !important;
+    white-space: nowrap !important;
+    background-color: transparent !important;
+    border: 0 !important;
+    font-size: 14px !important;
+    line-height: 1.5 !important;
+    cursor: pointer !important;
+}
+
+.navbar .dropdown-item:hover,
+.dropdown-item:hover,
+div.dropdown-item:hover,
+header .dropdown-item:hover {
+    color: #1a237e !important;
+    text-decoration: none !important;
+    background-color: #f8f9fa !important;
+}
+
+/* Override any Bootstrap or conflicting styles */
+.dropdown-menu[style*="display: none"] {
+    display: block !important;
+}
+
+.dropdown-menu:not(.show) {
+    display: none !important;
+}
+
+/* Fix dropdown toggle button */
+.navbar .dropdown-toggle,
+.dropdown-toggle,
+div.dropdown-toggle,
+header .dropdown-toggle {
+    position: relative !important;
+    z-index: 1000 !important;
+    cursor: pointer !important;
+}
+
+/* Ensure dropdown container doesn't collapse */
+.navbar-nav .dropdown,
+.nav-item.dropdown {
+    position: relative !important;
+    display: inline-block !important;
+}
+
+/* Fix any potential overflow issues */
+.navbar,
+header,
+.nav {
+    overflow: visible !important;
+}
+
+/* Animation for dropdown */
+@keyframes dropdownFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.dropdown-menu.show {
+    animation: dropdownFadeIn 0.2s ease-out !important;
+}
+
+/* Dropdown Fixes for Login Form */
+.auth-container .Select,
+.auth-container .Select-control,
+.auth-container .Select-menu-outer,
+.auth-container .Select-menu,
+.auth-container .Select-option,
+.auth-container .is-open {
+    z-index: 9999 !important;
+    position: relative !important;
+}
+
+.auth-container .Select-menu-outer {
+    position: absolute !important;
+    top: 100% !important;
+    background-color: white !important;
+    border: 1px solid #ccc !important;
+    border-radius: 4px !important;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.175) !important;
+    margin-top: 4px !important;
+    max-height: 200px !important;
+    overflow-y: auto !important;
+    padding: 0 !important;
+    width: 100% !important;
+    display: block !important;
+}
+
+.auth-container .Select.is-open .Select-menu {
+    display: block !important;
+    max-height: 200px !important;
+    overflow-y: auto !important;
+}
+
+.auth-container .Select-option {
+    padding: 8px 12px !important;
+    background: white !important;
+    color: #333 !important;
+    cursor: pointer !important;
+    display: block !important;
+    width: 100% !important;
+}
+
+.auth-container .Select-option:hover {
+    background-color: #f5f5f5 !important;
+}
+
+/* Fix for Dash dropdown components */
+.auth-container .dash-dropdown {
+    position: relative !important;
+    z-index: 1000 !important;
+}
+
+.auth-container .dash-dropdown .Select-menu-outer {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    transform: none !important;
+}
+
+.auth-container .Select.is-focused:not(.is-open) > .Select-control {
+    border-color: #1a237e !important;
+    box-shadow: 0 0 0 1px #1a237e !important;
+}
+
+/* Ensure dropdown is above other elements */
+.auth-container {
+    position: relative !important;
+}
+
+/* Style the dropdown trigger */
+.auth-container .Select-control {
+    border: 1px solid #ccc !important;
+    border-radius: 4px !important;
+    background: white !important;
+    height: 36px !important;
+    cursor: pointer !important;
+    display: flex !important;
+    align-items: center !important;
+}
+
+/* Fix dropdown arrow */
+.auth-container .Select-arrow-zone {
+    padding-right: 8px !important;
+    display: block !important;
+}
+
+/* Ensure dropdown options are visible */
+.Select-menu-outer,
+.Select-menu {
+    background-color: white !important;
+    border: 1px solid #ccc !important;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.175) !important;
+    margin-top: 4px !important;
+    position: absolute !important;
+    width: 100% !important;
+    z-index: 9999 !important;
+    display: block !important;
+}
+
+/* Fix for Dash specific dropdown */
+.VirtualizedSelectOption {
+    background-color: white !important;
+    color: #333 !important;
+    padding: 8px 12px !important;
+}
+
+.VirtualizedSelectFocusedOption {
+    background-color: #f5f5f5 !important;
+}
+
+/* Override any Bootstrap styles that might interfere */
+.dropdown-menu {
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+    position: absolute !important;
+    top: 100% !important;
+    left: 0 !important;
+    z-index: 9999 !important;
+    float: left !important;
+    min-width: 160px !important;
+    padding: 5px 0 !important;
+    margin: 2px 0 0 !important;
+    list-style: none !important;
+    background-color: #fff !important;
+    border: 1px solid rgba(0,0,0,.15) !important;
+    border-radius: 4px !important;
+    box-shadow: 0 6px 12px rgba(0,0,0,.175) !important;
+}
+
+/* Fix Login Dropdown */
+.auth-container {
+    position: relative !important;
+}
+
+.auth-container .form-control {
+    position: relative !important;
+}
+
+.auth-container .dropdown-content,
+.auth-container .dropdown-menu,
+.auth-container .select-menu,
+.auth-container .autocomplete-dropdown {
+    position: absolute !important;
+    top: 100% !important;
+    left: 0 !important;
+    right: 0 !important;
+    background: white !important;
+    border: 1px solid #ccc !important;
+    border-radius: 4px !important;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1) !important;
+    z-index: 99999 !important;
+    max-height: 300px !important;
+    overflow-y: auto !important;
+    display: block !important;
+    margin-top: 2px !important;
+}
+
+.auth-container .dropdown-item,
+.auth-container .select-option,
+.auth-container .autocomplete-option {
+    padding: 8px 16px !important;
+    cursor: pointer !important;
+    color: #333 !important;
+    background: white !important;
+}
+
+.auth-container .dropdown-item:hover,
+.auth-container .select-option:hover,
+.auth-container .autocomplete-option:hover {
+    background: #f5f5f5 !important;
+}
+
+/* Ensure dropdown is above other elements */
+.auth-container .form-group {
+    position: relative !important;
+    z-index: 1000 !important;
+}
+
+/* Override any hidden styles */
+.auth-container [class*="dropdown"],
+.auth-container [class*="select"],
+.auth-container [class*="autocomplete"] {
+    visibility: visible !important;
+    opacity: 1 !important;
+    display: block !important;
+}
+
+/* Enhanced Form Controls */
+.form-control, 
+.Select,
+.Select-control {
+    width: 100% !important;
+    height: 50px !important;
+    border: none !important;
+    border-radius: 12px !important;
+    background-color: #fff !important;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08) !important;
+    margin-bottom: 15px !important;
+}
+
+.form-control:focus {
+    border-color: #1a237e !important;
+    box-shadow: 0 0 0 4px rgba(26, 35, 126, 0.1) !important;
+    outline: none !important;
+    transform: translateY(-2px) !important;
+}
+
+/* Critical Dropdown Fixes */
+.auth-container .dropdown,
+.auth-container .Select,
+.auth-container .Select-control {
+    position: relative !important;
+    width: 100% !important;
+    z-index: 9999 !important;
+}
+
+.auth-container .Select-menu-outer,
+.auth-container .dropdown-menu {
+    position: absolute !important;
+    top: 100% !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    background: white !important;
+    border: 1px solid rgba(0, 0, 0, 0.15) !important;
+    border-radius: 4px !important;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175) !important;
+    z-index: 99999 !important;
+    margin-top: 4px !important;
+    padding: 8px 0 !important;
+    max-height: 300px !important;
+    overflow-y: auto !important;
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+.auth-container .Select-option,
+.auth-container .dropdown-item {
+    padding: 8px 15px !important;
+    font-size: 14px !important;
+    line-height: 1.5 !important;
+    color: #333333 !important;
+    cursor: pointer !important;
+    background: white !important;
+    transition: background-color 0.2s ease !important;
+}
+
+.auth-container .Select-option:hover,
+.auth-container .dropdown-item:hover {
+    background-color: #f5f5f5 !important;
+    color: #1a237e !important;
+}
+
+/* Ensure dropdown container is visible */
+.auth-container .form-group {
+    position: relative !important;
+    z-index: 1000 !important;
+    margin-bottom: 20px !important;
+}
+
+/* Override any hidden styles */
+.auth-container .Select.is-open .Select-menu-outer,
+.auth-container .dropdown.show .dropdown-menu {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    transform: none !important;
+}
+
+/* Fix dropdown positioning to appear outside */
+.auth-container {
+    overflow: visible !important;
+}
+
+.auth-container .form-group {
+    position: relative !important;
+    overflow: visible !important;
+}
+
+.auth-container .dropdown,
+.auth-container .Select,
+.auth-container .Select-control {
+    position: relative !important;
+    width: 100% !important;
+    z-index: 9999 !important;
+    overflow: visible !important;
+}
+
+.auth-container .Select-menu-outer,
+.auth-container .dropdown-menu {
+    position: fixed !important;
+    min-width: 200px !important;
+    width: auto !important;
+    background: white !important;
+    border: 1px solid rgba(0, 0, 0, 0.15) !important;
+    border-radius: 4px !important;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175) !important;
+    z-index: 999999 !important;
+    margin-top: 2px !important;
+    padding: 8px 0 !important;
+    max-height: 300px !important;
+    overflow-y: auto !important;
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+/* Remove any overflow restrictions from parent containers */
+#auth-box,
+.auth-container > div,
+.auth-container form,
+.form-group,
+.dropdown-container {
+    overflow: visible !important;
+}
+
+/* Ensure the dropdown appears above everything */
+.Select.is-open {
+    z-index: 999999 !important;
+}
+
+.Select.is-open .Select-menu-outer {
+    position: absolute !important;
+    top: 100% !important;
+    left: 0 !important;
+    right: auto !important;
+}
+
+/* Additional fixes for dropdown positioning */
+.auth-container .dropdown.show .dropdown-menu,
+.auth-container .Select.is-open .Select-menu-outer {
+    position: absolute !important;
+    top: calc(100% + 5px) !important;
+    left: 0 !important;
+    right: auto !important;
+    transform: none !important;
+    display: block !important;
+}
+
+/* Form Labels */
+.form-label {
+    color: #1a237e !important;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    margin-bottom: 8px !important;
+    display: block !important;
+}
+
+/* Switch Mechanism with Text */
+.checkbox:checked + label,
+.checkbox:not(:checked) + label {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 200px;
+    height: 40px;
+    border-radius: 20px;
+    padding: 0 10px;
+    margin: 20px auto;
+    cursor: pointer;
+    background-color: rgba(26, 35, 126, 0.1);
+    color: #1a237e;
+    font-weight: 600;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.checkbox:checked + label:before,
+.checkbox:not(:checked) + label:before {
+    content: "";
+    position: absolute;
+    width: 90px;
+    height: 30px;
+    border-radius: 15px;
+    background: #1a237e;
+    top: 5px;
+    left: 5px;
+    transition: all 0.3s ease;
+}
+
+.checkbox:checked + label:before {
+    transform: translateX(100px);
+}
+
+.checkbox:checked + label .login-text,
+.checkbox:not(:checked) + label .signup-text {
+    color: rgba(26, 35, 126, 0.5);
+}
+
+.checkbox:checked + label .signup-text,
+.checkbox:not(:checked) + label .login-text {
+    color: #fff;
+    z-index: 1;
+}
+
+.login-text, .signup-text {
+    position: relative;
+    z-index: 1;
+    padding: 0 10px;
+    transition: all 0.3s ease;
+}
+
+/* 3D Card */
+.card-3d-wrap {
+    position: relative;
+    width: 440px;
+    max-width: 100%;
+    height: 400px;
+    transform-style: preserve-3d;
+    perspective: 800px;
+    margin-top: 40px;
+}
+
+.card-3d-wrapper {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform-style: preserve-3d;
+    transition: all 600ms ease-out;
+}
+
+.card-front, .card-back {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    position: absolute;
+    border-radius: 6px;
+    left: 0;
+    top: 0;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+    padding: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.1);
+}
+
+.card-back {
+    transform: rotateY(180deg);
+}
+
+.checkbox:checked ~ .card-3d-wrap .card-3d-wrapper {
+    transform: rotateY(180deg);
+}
+
+/* Center Content */
+.center-wrap {
+    position: absolute;
+    width: 100%;
+    padding: 0 35px;
+    top: 50%;
+    left: 0;
+    transform: translate3d(0, -50%, 35px) perspective(100px);
+    z-index: 20;
+    display: block;
+}
+
+/* Form Styling */
+.form-group {
+    position: relative;
+    display: block;
+    margin: 0;
+    padding: 0;
+}
+
+.form-style {
+    padding: 13px 20px;
+    padding-left: 55px;
+    height: 48px;
+    width: 100%;
+    font-weight: 500;
+    border-radius: 4px;
+    font-size: 14px;
+    line-height: 22px;
+    letter-spacing: 0.5px;
+    outline: none;
+    color: #1a237e;
+    background-color: rgba(255, 255, 255, 0.9);
+    border: none;
+    transition: all 200ms linear;
+    box-shadow: 0 4px 8px 0 rgba(21,21,21,.2);
+}
+
+.form-style:focus,
+.form-style:active {
+    border: none;
+    outline: none;
+    box-shadow: 0 4px 8px 0 rgba(21,21,21,.2);
+}
+
+.input-icon {
+    position: absolute;
+    top: 0;
+    left: 18px;
+    height: 48px;
+    font-size: 24px;
+    line-height: 48px;
+    text-align: left;
+    color: #1a237e;
+    transition: all 200ms linear;
+}
+
+/* Button Styling */
+.btn {
+    border-radius: 4px;
+    height: 44px;
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    transition: all 200ms linear;
+    padding: 0 30px;
+    letter-spacing: 1px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border: none;
+    background-color: #1a237e;
+    color: #fff;
+    box-shadow: 0 8px 24px 0 rgba(26, 35, 126, .2);
+}
+
+.btn:active,
+.btn:focus {
+    background-color: #fff;
+    color: #1a237e;
+    box-shadow: 0 8px 24px 0 rgba(26, 35, 126, .2);
+}
+
+.btn:hover {
+    background-color: #fff;
+    color: #1a237e;
+    box-shadow: 0 8px 24px 0 rgba(26, 35, 126, .2);
+}
+
+/* Typography */
+h4 {
+    font-weight: 600;
+    color: #ffeba7;
+}
+
+h6 span {
+    padding: 0 20px;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 700;
+    color: #1a237e;
+    cursor: pointer;
+}
+
+.section {
+    position: relative;
+    width: 100%;
+    display: block;
+}
+
+.full-height {
+    min-height: 100vh;
+}
+
+/* Remove the white box and nav tabs */
+.main-bg .auth-container .nav-tabs,
+.main-bg .auth-container .nav-tabs .nav-link,
+.main-bg .auth-container .nav-tabs .nav-link.active,
+.main-bg .auth-container .nav-tabs .nav-link.active::after {
+    display: none !important;
+}
+
+.auth-container {
+    background: rgba(255, 255, 255, 0.1) !important;
+    backdrop-filter: blur(10px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2) !important;
+    padding: 30px !important;
+    margin-top: 20px !important;
+}
+
+/* Dropdown Styling */
+.Select-control {
+    border: none !important;
+    border-radius: 12px !important;
+    background: #fff !important;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08) !important;
+    height: 50px !important;
+    padding: 0 15px !important;
+    display: flex !important;
+    align-items: center !important;
+    cursor: pointer !important;
+    margin-bottom: 15px !important;
+}
+
+.Select-value {
+    padding: 0 !important;
+    line-height: 50px !important;
+    font-size: 16px !important;
+    color: #1a237e !important;
+}
+
+.Select-placeholder {
+    color: #1a237e !important;
+    line-height: 50px !important;
+    font-size: 16px !important;
+}
+
+.Select-menu-outer {
+    border: none !important;
+    border-radius: 12px !important;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08) !important;
+    background: #fff !important;
+    margin-top: 5px !important;
+}
+
+.Select-option {
+    padding: 12px 15px !important;
+    color: #1a237e !important;
+    font-size: 16px !important;
+}
+
+.Select-option:hover {
+    background-color: rgba(26, 35, 126, 0.05) !important;
+}
+
+.Select-option.is-selected {
+    background-color: rgba(26, 35, 126, 0.1) !important;
+    font-weight: 500 !important;
+}
+
+.Select-arrow {
+    border-color: #1a237e transparent transparent !important;
+}
+
+.Select.is-open .Select-arrow {
+    border-color: transparent transparent #1a237e !important;
+}
+
+/* Remove extra icons and clean up the interface */
+.Select-clear-zone,
+.Select-loading-zone {
+    display: none !important;
+}
+
+.Select.has-value.Select--single > .Select-control .Select-value .Select-value-label {
+    color: #1a237e !important;
+}
+
+/* Remove extra icons and clean up the interface */
+.Select-clear-zone,
+.Select-loading-zone {
+    display: none !important;
+}
+
+.Select.has-value.Select--single > .Select-control .Select-value .Select-value-label {
+    color: #1a237e !important;
+}

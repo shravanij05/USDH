@@ -1,0 +1,779 @@
+/* Study Plan Styles */
+.container {
+    background: linear-gradient(135deg, #0a1451 0%, #1a237e 100%);
+    min-height: 100vh;
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+    color: #ffffff;
+}
+
+.container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.15) 0%, transparent 60%),
+        radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.15) 0%, transparent 60%);
+    pointer-events: none;
+}
+
+/* Main Title */
+.study-plan-title {
+    color: #ffffff !important;
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 2rem;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    position: relative;
+    padding-left: 4rem;
+    text-align: center;
+    width: 100%;
+    justify-content: center;
+}
+
+.study-plan-title::before {
+    content: none !important;
+    display: none !important;
+}
+
+/* My Study Plan Section */
+.my-study-plan-title {
+    color: #ffffff !important;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    padding: 1rem 0;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.my-study-plan-title::before {
+    content: none !important;
+    display: none !important;
+}
+
+/* Section Headers */
+.section-header {
+    color: #ffffff !important;
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin: 2rem 0 1.5rem 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.section-header::before {
+    content: none !important;
+    display: none !important;
+}
+
+/* Card Headers */
+.card-header {
+    background: rgba(255, 255, 255, 0.1) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2) !important;
+    color: #ffffff !important;
+    font-size: 1.5rem;
+    font-weight: 600;
+    padding: 1rem 1.5rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* Form Labels */
+.form-label {
+    color: #ffffff !important;
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-bottom: 0.8rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* Header Styles */
+h2 {
+    font-size: 3rem;
+    font-weight: 800;
+    color: #ffffff !important;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    position: relative;
+    padding-left: 4rem;
+    letter-spacing: 1px;
+    text-align: center;
+    width: 100%;
+    justify-content: center;
+    padding-left: 0 !important;
+}
+
+h2::before {
+    content: none !important;
+    display: none !important;
+}
+
+/* Specific h4 styling for study plan */
+.study-plan h4,
+.study-container h4,
+.study-section h4,
+.card h4,
+#study-plan-content h4 {
+    color: #ffffff !important;
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    padding-left: 1.5rem;
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.5px;
+}
+
+h4::before {
+    content: none !important;
+    display: none !important;
+}
+
+/* Form Elements */
+.form-label::before {
+    content: none !important;
+    display: none !important;
+}
+
+.form-control {
+    background: rgba(255, 255, 255, 0.95) !important;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 12px;
+    padding: 1rem 1.2rem;
+    font-size: 1.1rem;
+    color: #1a237e !important;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    height: 32px;
+    padding: 0 12px;
+    resize: none;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.form-control:focus {
+    background: #ffffff !important;
+    border-color: #1a237e;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(26, 35, 126, 0.2);
+}
+
+/* Card Styles */
+.card {
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    margin-bottom: 1.5rem;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.card-body {
+    padding: 2rem;
+    color: #ffffff;
+}
+
+/* Button Styles */
+.btn {
+    padding: 0 12px;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 4px;
+    text-transform: none;
+    letter-spacing: 0.5px;
+    margin: 4px;
+    height: 32px;
+    width: auto;
+    min-width: 32px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: all 0.2s ease;
+}
+
+/* Primary buttons */
+.btn-primary {
+    background: #ff5722;
+    border: none;
+    color: white;
+}
+
+.btn-primary:hover {
+    background: #f4511e;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Secondary buttons */
+.btn-secondary {
+    background: #ffffff;
+    border: 1px solid #e0e0e0;
+    color: #424242;
+}
+
+.btn-secondary:hover {
+    background: #f5f5f5;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Back to Dashboard button specific */
+.btn-back {
+    padding: 0 10px;
+    height: 28px;
+    width: auto;
+    min-width: 28px;
+    font-size: 13px;
+}
+
+/* Action buttons (Next, Previous, etc) */
+.btn-action {
+    background: #1976d2;
+    color: white;
+    border: none;
+    padding: 0 12px;
+    height: 32px;
+}
+
+.btn-action:hover {
+    background: #f4511e;
+}
+
+/* Icon alignment in buttons */
+.btn i, 
+.btn .fas,
+.btn .far,
+.btn .fa {
+    font-size: 14px;
+    margin-right: 6px;
+}
+
+/* Button Container */
+.button-container {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 2rem 0;
+}
+
+/* Study Plan Sections */
+.study-section {
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 16px;
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.study-section-title {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    color: #ffffff;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.study-section-title::before {
+    content: none !important;
+    display: none !important;
+}
+
+/* Progress Bar */
+.progress {
+    height: 1.5rem;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 10px;
+    margin: 1rem 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.progress-bar {
+    background: linear-gradient(135deg, #1a237e, #0d47a1);
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Timeline */
+.timeline {
+    position: relative;
+    padding: 2rem 0;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateX(-50%);
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    color: #ffffff;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.timeline-item::before {
+    content: none !important;
+    display: none !important;
+}
+
+/* Alert Styles */
+.alert {
+    border-radius: 15px;
+    padding: 1.2rem;
+    margin: 1.5rem 0;
+    border: none;
+    backdrop-filter: blur(10px);
+}
+
+.alert-success {
+    background: rgba(76, 175, 80, 0.2);
+    color: #ffffff;
+    border-left: 4px solid #4caf50;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.alert-warning {
+    background: rgba(255, 152, 0, 0.2);
+    color: #ffffff;
+    border-left: 4px solid #ff9800;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 6px;
+    border: 3px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Loading Animation */
+.loading-spinner {
+    display: inline-block;
+    width: 60px;
+    height: 60px;
+    border: 4px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: #ffffff;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 1rem;
+    }
+
+    h2 {
+        font-size: 2.2rem;
+        padding-left: 3rem;
+    }
+
+    h2::before {
+        font-size: 2.8rem;
+    }
+
+    .btn {
+        width: 100%;
+        margin: 0.5rem 0;
+    }
+
+    .button-container {
+        gap: 1rem;
+    }
+
+    .card-body {
+        padding: 1.5rem;
+    }
+
+    .timeline::before {
+        left: 1rem;
+    }
+
+    .timeline-item::before {
+        left: -2rem;
+    }
+}
+
+/* Keep transitions and hover effects */
+* {
+    animation: none !important;
+}
+
+/* Restore specific transitions */
+.btn, .form-control, .card, .nav-link {
+    transition: all 0.3s ease !important;
+}
+
+/* Icon Animations */
+@keyframes float {
+    0% { 
+        transform: translateY(0);
+    }
+    50% { 
+        transform: translateY(-20px);
+    }
+    100% { 
+        transform: translateY(0);
+    }
+}
+
+.study-icon,
+.section-icon,
+.timeline-icon,
+.tool-icon,
+.nav-icon,
+.action-icon {
+    animation: float 2s ease-in-out infinite !important;
+    filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+/* Add staggered animation delays for multiple icons */
+.study-icon:nth-child(1) { animation-delay: 0s !important; }
+.study-icon:nth-child(2) { animation-delay: 0.2s !important; }
+.study-icon:nth-child(3) { animation-delay: 0.4s !important; }
+.study-icon:nth-child(4) { animation-delay: 0.6s !important; }
+.study-icon:nth-child(5) { animation-delay: 0.8s !important; }
+
+/* Restore hover effects */
+.btn:hover {
+    transform: translateY(-3px) !important;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.card:hover {
+    transform: translateY(-5px) !important;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+.form-control:focus {
+    transform: scale(1.02) !important;
+}
+
+.study-section:hover {
+    transform: translateY(-5px) !important;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+/* Header text color overrides */
+h1, h2, h3, h4, h5, h6,
+.card-header,
+.section-header,
+.study-plan-title,
+.my-study-plan-title,
+.study-section-title {
+    color: #ffffff !important;
+}
+
+/* Specific header styles */
+.card-header {
+    color: #ffffff !important;
+    background: rgba(26, 35, 126, 0.5) !important;
+}
+
+.section-header {
+    color: #ffffff !important;
+}
+
+.study-plan-title {
+    color: #ffffff !important;
+}
+
+.my-study-plan-title {
+    color: #ffffff !important;
+}
+
+.study-section-title {
+    color: #ffffff !important;
+}
+
+/* Text Color Overrides - Making all text white and bold for better visibility */
+.container h1,
+.container h2,
+.container h3,
+.container h4,
+.container h5,
+.container h6,
+.form-label,
+.section-header,
+.study-plan-title,
+.my-study-plan-title,
+.study-section-title,
+.card-header {
+    color: #ffffff !important;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    font-weight: 600;
+}
+
+/* Study plan titles */
+.study-plan-title,
+.my-study-plan-title {
+    color: #ffffff !important;
+    font-size: 28px;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Section headers */
+.section-header {
+    color: #ffffff !important;
+    font-size: 24px;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Making buttons smaller */
+.btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    min-width: 120px;
+    margin: 0.3rem;
+    height: auto;
+    line-height: 1.5;
+}
+
+/* Back to Dashboard button specific styling */
+.btn-back {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.85rem;
+    min-width: 100px;
+}
+
+/* Card headers */
+.card-header {
+    background: rgba(26, 35, 126, 0.7) !important;
+    color: #ffffff !important;
+    font-weight: bold;
+}
+
+/* Study section titles */
+.study-section-title {
+    color: #ffffff !important;
+    font-size: 20px;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Ensure all header text is white */
+h1, h2, h3, h4, h5, h6 {
+    color: white !important;
+    text-shadow: 1px 1px 2px rgb(252, 243, 243);
+}
+
+/* High specificity selector for h4 to ensure it overrides other styles */
+body h4,
+.container h4,
+#page-content h4,
+div h4,
+section h4,
+.card h4,
+.study-section h4,
+h4.section-title,
+h4.card-title,
+h4 {
+    color: #ffffff !important;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5) !important;
+    font-weight: 600 !important;
+}
+
+/* Make sure card headers with h4 are also white */
+.card-header h4,
+h4.card-header {
+    color: #ffffff !important;
+    background: rgba(26, 35, 126, 0.7) !important;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* Make all h4 text white */
+h4,
+.container h4,
+div h4,
+section h4,
+.card h4,
+.study-section h4,
+.study-plan h4,
+.timeline h4,
+.study-content h4 {
+    color: #ffffff !important;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8) !important;
+}
+
+/* Make all styles specific to study plan section */
+.study-plan-container h1,
+.study-plan-container h2,
+.study-plan-container .main-title {
+    text-align: center !important;
+    width: 100% !important;
+    justify-content: center !important;
+    padding-left: 0 !important;
+}
+
+.study-plan-container .btn {
+    height: 32px;
+    width: auto;
+    min-width: 32px;
+    padding: 0 12px;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 4px;
+    margin: 4px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background: #ffffff !important;
+    color: #1a237e !important;
+    border: 1px solid #e0e0e0 !important;
+}
+
+.study-plan-container .btn:hover {
+    background: #f5f5f5 !important;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.study-plan-container .btn-primary {
+    background: #ffffff !important;
+    border: 1px solid #e0e0e0 !important;
+    color: #1a237e !important;
+}
+
+.study-plan-container .btn-secondary {
+    background: #ffffff !important;
+    border: 1px solid #e0e0e0 !important;
+    color: #1a237e !important;
+}
+
+.study-plan-container .btn-action {
+    background: #ffffff !important;
+    color: #1a237e !important;
+    border: 1px solid #e0e0e0 !important;
+}
+
+.study-plan-container .btn-back {
+    background: #ffffff !important;
+    color: #1a237e !important;
+    border: 1px solid #e0e0e0 !important;
+}
+
+/* Ensure these styles don't affect login page */
+.study-plan-container .btn-primary {
+    background: #ff5722;
+    border: none;
+    color: white;
+}
+
+.study-plan-container .btn-secondary {
+    background: #ffffff;
+    border: 1px solid #e0e0e0;
+    color: #424242;
+}
+
+/* Remove padding that was added for icons */
+h2, .vccs-section-title {
+    padding-left: 0 !important;
+}
+
+/* Fix visibility for the Generate Plans button in Study Plan */
+html body .generate-plans-btn,
+html body button[id*="generate-plan"],
+html body [class*="generate-plan"],
+html body button[class*="generate"],
+html body input[type="button"][class*="generate"],
+html body .btn[class*="generate"],
+html body .study-plan button[class*="generate"],
+html body .study-plan .btn-primary,
+html body .plan-generation .btn,
+html body .study-plan-container .btn-action,
+html body button[class*="plan"] {
+    background-color: #ffffff !important; /* White background */
+    color: #1a237e !important; /* Dark blue text */
+    -webkit-text-fill-color: #1a237e !important;
+    border: 1px solid #e0e0e0 !important;
+    height: auto !important;
+    min-height: 32px !important;
+    padding: 6px 14px !important;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    border-radius: 4px !important;
+    margin: 8px 0 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1) !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+    position: relative !important;
+    z-index: 10 !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    width: auto !important;
+    min-width: 120px !important;
+    max-width: 200px !important;
+    text-transform: none !important;
+    letter-spacing: 0.5px !important;
+    line-height: 1.5 !important;
+}
+
+/* Button hover state - lighten background slightly */
+html body .generate-plans-btn:hover,
+html body button[id*="generate-plan"]:hover,
+html body [class*="generate-plan"]:hover,
+html body button[class*="generate"]:hover,
+html body input[type="button"][class*="generate"]:hover,
+html body .btn[class*="generate"]:hover,
+html body .study-plan button[class*="generate"]:hover,
+html body .study-plan .btn-primary:hover,
+html body .plan-generation .btn:hover,
+html body .study-plan-container .btn-action:hover,
+html body button[class*="plan"]:hover {
+    background-color: #f5f5f5 !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15) !important;
+}

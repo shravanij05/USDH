@@ -1,0 +1,1270 @@
+/* Ensure all header text is white */
+h1, h2, h3, h4, h5, h6 {
+    color: white !important;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}/* Ensure all header text is white */
+h1, h2, h3, h4, h5, h6 {
+    color: white !important;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}/* Ensure all header text is white */
+h1, h2, h3, h4, h5, h6 {
+    color: white !important;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}/* Ensure all header text is white */
+h1, h2, h3, h4, h5, h6 {
+    color: white !important;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}/* Ensure all header text is white */
+h1, h2, h3, h4, h5, h6 {
+    color: white !important;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}/* Ensure all header text is white */
+h1, h2, h3, h4, h5, h6 {
+    color: white !important;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}/* Resume Maker Styles */
+.container {
+    background: linear-gradient(135deg, #0a1451 0%, #1a237e 100%);
+    min-height: 100vh;
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+    color: #ffffff;
+}
+
+.container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.15) 0%, transparent 60%),
+        radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.15) 0%, transparent 60%);
+    pointer-events: none;
+}
+
+/* Header Styles */
+h2 {
+    font-size: 3rem;
+    font-weight: 800;
+    color: #ffffff !important;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    position: relative;
+    padding-left: 4rem;
+    letter-spacing: 1px;
+}
+
+h2::before {
+    content: '📄';
+    font-size: 3.2rem;
+    position: absolute;
+    left: 0;
+    filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+/* High specificity selector for h4 to ensure it overrides other styles */
+body h4,
+.container h4,
+#page-content h4,
+div h4,
+section h4,
+.card h4,
+.form-section h4,
+h4.section-title,
+h4.card-title,
+h4 {
+    color: #ffffff !important;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5) !important;
+    font-weight: 600 !important;
+}
+
+/* Make sure card headers with h4 are also white */
+.card-header h4,
+h4.card-header {
+    color: #ffffff !important;
+    background: rgba(26, 35, 126, 0.7) !important;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5) !important;
+}
+
+h4::before {
+    content: '';
+    display: none;
+}
+
+/* Form Section Titles */
+.form-section-title {
+    color: #ffffff !important;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    padding: 1rem 0;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Form Labels */
+.form-label {
+    color: #ffffff !important;
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-bottom: 0.8rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* Section Headers */
+.section-header {
+    color: #ffffff !important;
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin: 2rem 0 1.5rem 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.section-header::before {
+    content: '';
+    display: none;
+}
+
+/* Card Headers */
+.card-header {
+    background: rgba(255, 255, 255, 0.1) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2) !important;
+    color: #ffffff !important;
+    font-size: 1.5rem;
+    font-weight: 600;
+    padding: 1rem 1.5rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* Template Selection Text */
+.template-selection-text {
+    color: #ffffff !important;
+    font-size: 1.2rem;
+    font-weight: 500;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* Form Control Labels */
+.form-control-label {
+    color: #ffffff !important;
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* Form Elements */
+.form-control {
+    background: #ffffff;
+    border: 1px solid #e0e0e0;
+    color: #333333;
+    transition: all 0.2s ease;
+}
+
+.form-control:focus {
+    border-color: #ff5722;
+    box-shadow: 0 0 0 2px rgba(255, 87, 34, 0.2);
+}
+
+/* Card Styles */
+.card {
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    margin-bottom: 1.5rem;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    color: #ffffff !important;
+}
+
+.card-body {
+    padding: 2rem;
+    color: #ffffff !important;
+}
+
+.card-title {
+    color: #ffffff !important;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.card-text {
+    color: #ffffff !important;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* Button Styles */
+.btn,
+.form-control {
+    height: 36px;
+    line-height: 36px;
+    padding: 0 16px;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 4px;
+    margin: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Primary buttons */
+.btn-primary {
+    background: #ff5722;
+    border: none;
+    color: white;
+}
+
+.btn-primary:hover {
+    background: #f4511e;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Secondary buttons */
+.btn-secondary {
+    background: #ffffff;
+    border: 1px solid #e0e0e0;
+    color: #424242;
+}
+
+.btn-secondary:hover {
+    background: #f5f5f5;
+}
+
+/* Back button */
+.btn-back {
+    height: 32px;
+    line-height: 32px;
+    padding: 0 12px;
+    font-size: 13px;
+}
+
+/* Action buttons (Add Education, Add Experience, etc) */
+.btn-action {
+    background: #1976d2;
+    color: white;
+    border: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.btn-action:hover {
+    background: #1565c0;
+}
+
+/* Icon alignment in buttons */
+.btn i, 
+.btn .fas,
+.btn .far,
+.btn .fa {
+    font-size: 14px;
+    margin-right: 6px;
+}
+
+/* Button Container */
+.button-container {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 2rem 0;
+}
+
+/* Template Selection Styles */
+.template-selection {
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 16px;
+    padding: 0.5rem;
+    display: inline-flex;
+    gap: 0.5rem;
+    margin: 2rem 0;
+    backdrop-filter: blur(10px);
+}
+
+.template-option {
+    min-width: 150px;
+    margin: 0;
+    padding: 0;
+}
+
+.template-option input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+.template-option label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 2rem;
+    border-radius: 12px;
+    color: #ffffff;
+    font-weight: 500;
+    cursor: pointer;
+    background: transparent;
+    text-align: center;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.template-option input[type="radio"]:checked + label {
+    background: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.3);
+}
+
+.template-title {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    color: #ffffff;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.template-title::before {
+    content: '';
+    display: none;
+}
+
+/* Form Check Styles */
+.form-check:not(.template-option) {
+    padding: 1.2rem;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 12px;
+    margin: 0.8rem 0;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+.form-check-input {
+    margin-right: 1.2rem;
+    cursor: pointer;
+}
+
+.form-check-input:checked {
+    background-color: #1a237e;
+    border-color: #1a237e;
+}
+
+.form-check-label {
+    color: #ffffff;
+    font-weight: 500;
+    font-size: 1.1rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* Alert Styles */
+.alert {
+    border-radius: 15px;
+    padding: 1.2rem;
+    margin: 1.5rem 0;
+    border: none;
+    backdrop-filter: blur(10px);
+}
+
+.alert-success {
+    background: rgba(76, 175, 80, 0.2);
+    color: #ffffff;
+    border-left: 4px solid #4caf50;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.alert-warning {
+    background: rgba(255, 152, 0, 0.2);
+    color: #ffffff;
+    border-left: 4px solid #ff9800;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* Preview Section */
+.preview-section {
+    background: linear-gradient(135deg, #1a237e 0%, #0d47a1 100%);
+    border-radius: 20px;
+    padding: 2.5rem;
+    margin-top: 2.5rem;
+    color: #ffffff;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Download History */
+.download-history {
+    background: linear-gradient(135deg, #1a237e 0%, #0d47a1 100%);
+    border-radius: 20px;
+    padding: 2rem;
+    margin-top: 2.5rem;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    color: #ffffff;
+}
+
+/* IFrame Styles */
+iframe {
+    border: none;
+    border-radius: 15px;
+    margin: 1.5rem 0;
+    background: linear-gradient(135deg, #1a237e 0%, #0d47a1 100%);
+    color: #ffffff;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 6px;
+    border: 3px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Loading Animation */
+.loading-spinner {
+    display: inline-block;
+    width: 60px;
+    height: 60px;
+    border: 4px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: #ffffff;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 1rem;
+    }
+
+    h2 {
+        font-size: 2.2rem;
+        padding-left: 3rem;
+    }
+
+    h2::before {
+        font-size: 2.8rem;
+    }
+
+    .btn {
+        width: 100%;
+        margin: 0.5rem 0;
+    }
+
+    .button-container {
+        gap: 1rem;
+    }
+
+    .card-body {
+        padding: 1.5rem;
+    }
+}
+
+/* Keep transitions and hover effects */
+* {
+    animation: none !important;
+}
+
+/* Restore specific transitions */
+.btn, .form-control, .card, .nav-link {
+    transition: all 0.3s ease !important;
+}
+
+/* Icon Animations */
+@keyframes float {
+    0% { 
+        transform: translateY(0);
+    }
+    50% { 
+        transform: translateY(-20px);
+    }
+    100% { 
+        transform: translateY(0);
+    }
+}
+
+.resume-icon,
+.section-icon,
+.template-icon,
+.tool-icon,
+.nav-icon,
+.action-icon {
+    animation: float 2s ease-in-out infinite !important;
+    filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+/* Add staggered animation delays for multiple icons */
+.resume-icon:nth-child(1) { animation-delay: 0s !important; }
+.resume-icon:nth-child(2) { animation-delay: 0.2s !important; }
+.resume-icon:nth-child(3) { animation-delay: 0.4s !important; }
+.resume-icon:nth-child(4) { animation-delay: 0.6s !important; }
+.resume-icon:nth-child(5) { animation-delay: 0.8s !important; }
+
+/* Restore hover effects */
+.btn:hover {
+    transform: translateY(-3px) !important;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.card:hover {
+    transform: translateY(-5px) !important;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+.form-control:focus {
+    transform: scale(1.02) !important;
+}
+
+.template-option:hover {
+    transform: translateY(-5px) !important;
+}
+
+/* Header text color overrides */
+h1, h2, h3, h4, h5, h6,
+.card-header,
+.section-header,
+.form-section-title,
+.template-title {
+    color: #ffffff !important;
+}
+
+/* Specific header styles */
+.card-header {
+    color: #ffffff !important;
+    background: rgba(26, 35, 126, 0.5) !important;
+}
+
+.section-header {
+    color: #ffffff !important;
+}
+
+.form-section-title {
+    color: #ffffff !important;
+}
+
+.template-title {
+    color: #ffffff !important;
+}
+
+/* Text Color Overrides - Making all text white and bold for better visibility */
+.container h1,
+.container h2,
+.container h3,
+.container h4,
+.container h5,
+.container h6,
+.form-label,
+.section-header,
+.card-header,
+.form-section-title,
+.template-title,
+.form-control-label {
+    color: #ffffff !important;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    font-weight: 600;
+}
+
+/* Making section titles more visible */
+.section-header {
+    color: #ffffff !important;
+    font-size: 24px;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Form labels */
+.form-label {
+    color: #ffffff !important;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+/* Experience and Education sections */
+.form-section-title {
+    color: #ffffff !important;
+    font-size: 28px;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Personal Information section */
+.personal-info-title {
+    color: #ffffff !important;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+/* Making buttons smaller */
+.btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    min-width: 120px;
+    margin: 0.3rem;
+    height: auto;
+    line-height: 1.5;
+}
+
+/* Back to Dashboard button specific styling */
+.btn-back {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.85rem;
+    min-width: 100px;
+}
+
+/* Card headers */
+.card-header {
+    background: rgba(26, 35, 126, 0.7) !important;
+    color: #ffffff !important;
+    font-weight: bold;
+}
+
+/* Specific h4 styling for resume maker */
+.resume-maker h4,
+.resume-container h4,
+.form-section h4,
+.card h4,
+#resume-maker-content h4 {
+    color: #ffffff !important;
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    padding-left: 1.5rem;
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.5px;
+}
+
+h4::before {
+    content: '';
+    display: none;
+}
+
+.section-header::before {
+    content: '';
+    display: none;
+}
+
+.study-section-title::before {
+    content: '';
+    display: none;
+}
+
+.template-title::before {
+    content: '';
+    display: none;
+}
+
+/* Strong text visibility for all headings in resume maker */
+.container h1,
+.container h2,
+.container h3,
+.container h4,
+.container h5,
+.container h6,
+.personal-info h4,
+.education h4,
+.experience h4,
+.form-section h4,
+#resume-maker h4,
+.resume-section h4 {
+    color: #ffffff !important;
+    font-size: 24px !important;
+    font-weight: 700 !important;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8) !important;
+    margin-bottom: 20px !important;
+    letter-spacing: 0.5px !important;
+}
+
+/* Personal Information section */
+.personal-info h4,
+h4.personal-info-title {
+    color: #ffffff !important;
+    font-size: 28px !important;
+    font-weight: 700 !important;
+    margin-bottom: 25px !important;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8) !important;
+}
+
+/* Education section */
+.education h4,
+h4.education-title {
+    color: #ffffff !important;
+    font-size: 28px !important;
+    font-weight: 700 !important;
+    margin-bottom: 25px !important;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8) !important;
+}
+
+/* Experience section */
+.experience h4,
+h4.experience-title {
+    color: #ffffff !important;
+    font-size: 28px !important;
+    font-weight: 700 !important;
+    margin-bottom: 25px !important;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8) !important;
+}
+
+/* Form labels and text */
+.form-label,
+.form-text {
+    color: #ffffff !important;
+    font-size: 16px !important;
+    font-weight: 500 !important;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* Remove all emojis */
+h4::before,
+.section-header::before,
+.form-section-title::before,
+.template-title::before {
+    content: none !important;
+    display: none !important;
+}
+
+/* Make all h4 text white */
+h4,
+.container h4,
+div h4,
+section h4,
+.card h4,
+.form-section h4,
+.resume-section h4,
+.personal-info h4,
+.education h4,
+.experience h4 {
+    color: #ffffff !important;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8) !important;
+}
+
+/* Form groups */
+.form-group {
+    margin-bottom: 16px;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 8px;
+    color: #ffffff;
+    font-weight: 500;
+}
+
+/* Center main titles */
+h1, h2, .main-title {
+    text-align: center !important;
+    width: 100% !important;
+    justify-content: center !important;
+    padding-left: 0 !important;
+}
+
+/* Resume Maker title specific */
+.resume-maker-title {
+    text-align: center;
+    width: 100%;
+    justify-content: center;
+    margin-bottom: 2rem;
+    color: #ffffff !important;
+}
+
+/* Button and Input Styles */
+.btn {
+    height: 32px;
+    width: auto;
+    min-width: 32px;
+    padding: 0 12px;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 4px;
+    margin: 4px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Text fields/inputs */
+.form-control {
+    height: 32px;
+    padding: 0 12px;
+    font-size: 14px;
+    border-radius: 4px;
+    resize: none;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+/* Action buttons (Add Education, Add Experience, etc) */
+.btn-action {
+    background: #1976d2;
+    color: white;
+    border: none;
+    padding: 0 12px;
+    height: 32px;
+}
+
+/* Back button */
+.btn-back {
+    height: 28px;
+    width: auto;
+    min-width: 28px;
+    padding: 0 10px;
+    font-size: 13px;
+}
+
+/* Make all styles specific to resume maker section */
+.resume-maker-container h1,
+.resume-maker-container h2,
+.resume-maker-container .main-title {
+    text-align: center !important;
+    width: 100% !important;
+    justify-content: center !important;
+    padding-left: 0 !important;
+}
+
+.resume-maker-container .btn {
+    height: 32px;
+    width: auto;
+    min-width: 32px;
+    padding: 0 12px;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 4px;
+    margin: 4px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background: #ffffff;
+    color: #1a237e;
+    border: 1px solid #e0e0e0;
+}
+
+.resume-maker-container .btn:hover {
+    background: #f5f5f5;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.resume-maker-container .btn-primary {
+    background: #ffffff;
+    border: 1px solid #e0e0e0;
+    color: #1a237e;
+}
+
+.resume-maker-container .btn-secondary {
+    background: #ffffff;
+    border: 1px solid #e0e0e0;
+    color: #1a237e;
+}
+
+.resume-maker-container .btn-action {
+    background: #ffffff;
+    color: #1a237e;
+    border: 1px solid #e0e0e0;
+}
+
+.resume-maker-container .btn-back {
+    background: #ffffff;
+    color: #1a237e;
+    border: 1px solid #e0e0e0;
+}
+
+/* Ensure these styles don't affect login page */
+.resume-maker-container .btn-primary {
+    background: #ff5722;
+    border: none;
+    color: white;
+}
+
+.resume-maker-container .btn-secondary {
+    background: #ffffff;
+    border: 1px solid #e0e0e0;
+    color: #424242;
+}
+
+/* Resume Maker Section Titles */
+.resume-maker h4,
+.resume-maker .section-title,
+.personal-info h4,
+.education h4,
+.skills h4,
+.certifications h4,
+.saved-certifications h4,
+.template-selection h4,
+.download-history h4 {
+    color: #ffffff !important;
+    font-size: 24px !important;
+    font-weight: 700 !important;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8) !important;
+    margin-bottom: 20px !important;
+    letter-spacing: 0.5px !important;
+}
+
+/* Additional styling for better visibility */
+.resume-maker .section-title::before,
+.personal-info h4::before,
+.education h4::before,
+.skills h4::before,
+.certifications h4::before,
+.saved-certifications h4::before,
+.template-selection h4::before,
+.download-history h4::before {
+    display: none !important;
+}
+
+/* Ensure text remains white even on hover */
+.resume-maker h4:hover,
+.resume-maker .section-title:hover,
+.personal-info h4:hover,
+.education h4:hover,
+.skills h4:hover,
+.certifications h4:hover,
+.saved-certifications h4:hover,
+.template-selection h4:hover,
+.download-history h4:hover {
+    color: #ffffff !important;
+}
+
+/* Add a subtle background to make text more readable if needed */
+.resume-maker .section-header {
+    background: rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+/* Resume Maker Section Titles - High Specificity Rules */
+body .resume-maker h4,
+body .resume-maker .section-title,
+body .personal-info h4,
+body .education h4,
+body .skills h4,
+body .certifications h4,
+body .saved-certifications h4,
+body .template-selection h4,
+body .download-history h4,
+#resume-maker h4,
+#resume-maker .section-title,
+#personal-info h4,
+#education h4,
+#skills h4,
+#certifications h4,
+#saved-certifications h4,
+#template-selection h4,
+#download-history h4,
+div[class*="resume"] h4,
+div[class*="personal"] h4,
+div[class*="education"] h4,
+div[class*="skills"] h4,
+div[class*="certifications"] h4,
+div[class*="template"] h4,
+div[class*="download"] h4 {
+    color: #ffffff !important;
+    font-size: 24px !important;
+    font-weight: 700 !important;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8) !important;
+    margin-bottom: 20px !important;
+    letter-spacing: 0.5px !important;
+    background: rgba(0, 0, 0, 0.2) !important;
+    padding: 10px !important;
+    border-radius: 5px !important;
+    border-left: 4px solid #eeeef2 !important;
+    display: block !important;
+    width: 100% !important;
+}
+
+/* Ensure no pseudo-elements interfere */
+body .resume-maker h4::before,
+body .resume-maker h4::after,
+body .personal-info h4::before,
+body .personal-info h4::after,
+body .education h4::before,
+body .education h4::after,
+body .skills h4::before,
+body .skills h4::after,
+body .certifications h4::before,
+body .certifications h4::after,
+body .saved-certifications h4::before,
+body .saved-certifications h4::after,
+body .template-selection h4::before,
+body .template-selection h4::after,
+body .download-history h4::before,
+body .download-history h4::after {
+    display: none !important;
+    content: none !important;
+}
+
+/* Ensure text remains white on all states */
+body .resume-maker h4:hover,
+body .resume-maker h4:active,
+body .resume-maker h4:focus,
+body .personal-info h4:hover,
+body .personal-info h4:active,
+body .personal-info h4:focus,
+body .education h4:hover,
+body .education h4:active,
+body .education h4:focus,
+body .skills h4:hover,
+body .skills h4:active,
+body .skills h4:focus,
+body .certifications h4:hover,
+body .certifications h4:active,
+body .certifications h4:focus,
+body .saved-certifications h4:hover,
+body .saved-certifications h4:active,
+body .saved-certifications h4:focus,
+body .template-selection h4:hover,
+body .template-selection h4:active,
+body .template-selection h4:focus,
+body .download-history h4:hover,
+body .download-history h4:active,
+body .download-history h4:focus {
+    color: #ffffff !important;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8) !important;
+}
+
+/* Additional styling for better contrast */
+.resume-maker .section-header,
+.personal-info .section-header,
+.education .section-header,
+.skills .section-header,
+.certifications .section-header,
+.saved-certifications .section-header,
+.template-selection .section-header,
+.download-history .section-header {
+    background: linear-gradient(90deg, rgba(26, 35, 126, 0.4) 0%, rgba(0, 0, 0, 0.2) 100%) !important;
+    margin-bottom: 15px !important;
+    border-radius: 5px !important;
+    padding: 15px !important;
+}
+
+/* Resume Maker Section Titles - Maximum Specificity */
+body .resume-maker h4,
+body .personal-info h4,
+body .education h4,
+body .skills h4,
+body .certifications h4,
+body .saved-certifications h4,
+body .template-selection h4,
+body .download-history h4,
+#resume-maker h4,
+#personal-info h4,
+#education h4,
+#skills h4,
+#certifications h4,
+#saved-certifications h4,
+#template-selection h4,
+#download-history h4,
+div[class*="resume"] h4,
+div[class*="personal"] h4,
+div[class*="education"] h4,
+div[class*="skills"] h4,
+div[class*="certifications"] h4,
+div[class*="template"] h4,
+div[class*="download"] h4 {
+    color: #ffffff !important;
+    font-size: 28px !important;
+    font-weight: 700 !important;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8) !important;
+    margin-bottom: 25px !important;
+    letter-spacing: 0.5px !important;
+    background: rgba(0, 0, 0, 0.3) !important;
+    padding: 15px !important;
+    border-radius: 8px !important;
+    border-left: 4px solid #4CAF50 !important;
+    display: block !important;
+    width: 100% !important;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important;
+    position: relative !important;
+    z-index: 1 !important;
+}
+
+/* Ensure text remains white in all states */
+body .resume-maker h4:hover,
+body .personal-info h4:hover,
+body .education h4:hover,
+body .skills h4:hover,
+body .certifications h4:hover,
+body .saved-certifications h4:hover,
+body .template-selection h4:hover,
+body .download-history h4:hover,
+body .resume-maker h4:active,
+body .personal-info h4:active,
+body .education h4:active,
+body .skills h4:active,
+body .certifications h4:active,
+body .saved-certifications h4:active,
+body .template-selection h4:active,
+body .download-history h4:active,
+body .resume-maker h4:focus,
+body .personal-info h4:focus,
+body .education h4:focus,
+body .skills h4:focus,
+body .certifications h4:focus,
+body .saved-certifications h4:focus,
+body .template-selection h4:focus,
+body .download-history h4:focus {
+    color: #ffffff !important;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8) !important;
+}
+
+/* Remove any pseudo-elements */
+body .resume-maker h4::before,
+body .resume-maker h4::after,
+body .personal-info h4::before,
+body .personal-info h4::after,
+body .education h4::before,
+body .education h4::after,
+body .skills h4::before,
+body .skills h4::after,
+body .certifications h4::before,
+body .certifications h4::after,
+body .saved-certifications h4::before,
+body .saved-certifications h4::after,
+body .template-selection h4::before,
+body .template-selection h4::after,
+body .download-history h4::before,
+body .download-history h4::after {
+    display: none !important;
+    content: none !important;
+}
+
+/* Override any other styles that might affect these headings */
+.container h4,
+div h4,
+section h4,
+.card h4,
+.form-section h4,
+.resume-section h4 {
+    color: #ffffff !important;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8) !important;
+}
+
+/* Ensure the background container doesn't interfere */
+.resume-maker {
+    position: relative !important;
+    z-index: 0 !important;
+}
+
+/* Force white text color for all resume maker headings */
+html body .resume-maker h4,
+html body .resume-maker .personal-info h4,
+html body .resume-maker .education h4,
+html body .resume-maker .skills h4,
+html body .resume-maker .certifications h4,
+html body .resume-maker .saved-certifications h4,
+html body .resume-maker .template-selection h4,
+html body .resume-maker .download-history h4,
+html body div[id="resume-maker"] h4,
+html body div[class*="personal-info"] h4,
+html body div[class*="education"] h4,
+html body div[class*="skills"] h4,
+html body div[class*="certifications"] h4,
+html body div[class*="template"] h4,
+html body div[class*="download"] h4,
+html body .resume-maker [class*="section-title"],
+html body .resume-maker [class*="header"] {
+    color: #ffffff !important;
+    font-size: 28px !important;
+    font-weight: 700 !important;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8) !important;
+    -webkit-text-fill-color: #ffffff !important;
+    background: rgba(0, 0, 0, 0.3) !important;
+    padding: 15px !important;
+    border-radius: 8px !important;
+    border-left: 4px solid #4CAF50 !important;
+    margin-bottom: 25px !important;
+}
+
+/* Ensure text remains white in all interactive states */
+html body .resume-maker h4:hover,
+html body .resume-maker h4:active,
+html body .resume-maker h4:focus,
+html body .resume-maker h4:visited,
+html body .resume-maker [class*="section-title"]:hover,
+html body .resume-maker [class*="section-title"]:active,
+html body .resume-maker [class*="section-title"]:focus,
+html body .resume-maker [class*="section-title"]:visited {
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+}
+
+/* Remove any pseudo-elements */
+html body .resume-maker h4::before,
+html body .resume-maker h4::after,
+html body .resume-maker [class*="section-title"]::before,
+html body .resume-maker [class*="section-title"]::after {
+    display: none !important;
+    content: none !important;
+}
+
+/* Direct targeting for specific sections */
+html body h4[class*="personal"],
+html body h4[class*="education"],
+html body h4[class*="skills"],
+html body h4[class*="certifications"],
+html body h4[class*="template"],
+html body h4[class*="download"] {
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8) !important;
+}
+
+/* Override any inline styling with extremely high specificity */
+html body h4[style*="color"],
+html body .resume-maker h4[style*="color"],
+html body .personal-info h4[style*="color"],
+html body .education h4[style*="color"],
+html body .skills h4[style*="color"],
+html body .certifications h4[style*="color"],
+html body .saved-certifications h4[style*="color"],
+html body .template-selection h4[style*="color"],
+html body .download-history h4[style*="color"],
+html body [class*="personal"] h4[style*="color"],
+html body [class*="education"] h4[style*="color"],
+html body [class*="skills"] h4[style*="color"],
+html body [class*="certifications"] h4[style*="color"],
+html body [class*="template"] h4[style*="color"],
+html body [class*="download"] h4[style*="color"],
+html body div[id*="personal"] h4,
+html body div[id*="education"] h4,
+html body div[id*="skills"] h4,
+html body div[id*="certifications"] h4,
+html body div[id*="template"] h4,
+html body div[id*="download"] h4,
+html body div[class*="mb"] h4 {
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+    fill: #ffffff !important;
+    stroke: #ffffff !important;
+    border-color: #ffffff !important;
+    caret-color: #ffffff !important;
+    text-decoration-color: #ffffff !important;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8) !important;
+    background: rgba(0, 0, 0, 0.3) !important;
+    padding: 15px !important;
+    margin-bottom: 25px !important;
+}

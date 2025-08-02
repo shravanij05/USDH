@@ -1,0 +1,508 @@
+/* My Space Styles */
+.container {
+    background: linear-gradient(135deg, #0a1451 0%, #1a237e 100%);
+    min-height: 100vh;
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+    color: #ffffff;
+}
+
+/* Ensure all header text is white */
+h1, h2, h3, h4, h5, h6 {
+    color: white !important;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* Header Styles */
+h2 {
+    font-size: 3rem;
+    font-weight: 800;
+    color: #ffffff !important;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    position: relative;
+    padding-left: 0 !important;
+    letter-spacing: 1px;
+}
+
+/* Make all h4 text white */
+h4,
+.container h4,
+div h4,
+section h4,
+.card h4,
+.my-space h4,
+.space-section h4,
+.my-space-content h4 {
+    color: #ffffff !important;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8) !important;
+}
+
+/* Remove all icons */
+h2::before,
+h4::before,
+.section-header::before,
+.space-title::before,
+.vccs-section-title::before,
+.study-documents-title::before,
+.my-plans-title::before {
+    content: none !important;
+    display: none !important;
+}
+
+/* Remove padding that was meant for icons */
+h2,
+.section-header,
+.vccs-section-title,
+.study-documents-title,
+.my-plans-title {
+    padding-left: 0 !important;
+}
+
+.vccs-section-title::before {
+    content: none !important;
+    display: none !important;
+}
+
+/* Remove padding that was added for icons */
+.vccs-section-title {
+    padding-left: 0 !important;
+}
+
+/* Card Styles */
+.card {
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    margin-bottom: 1.5rem;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    color: #ffffff !important;
+}
+
+.card-body {
+    padding: 2rem;
+    color: #ffffff !important;
+}
+
+.card-title {
+    color: #ffffff !important;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.card-text {
+    color: #ffffff !important;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* Section Titles */
+.section-title {
+    color: #ffffff !important;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    padding: 1rem 0;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+/* VCCS Section */
+.vccs-section-title {
+    color: #ffffff !important;
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin: 2rem 0 1.5rem 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+/* Study Documents Section */
+.study-documents-title {
+    color: #ffffff !important;
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin: 2rem 0 1.5rem 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+/* My Plans Section */
+.my-plans-title {
+    color: #ffffff !important;
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin: 2rem 0 1.5rem 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+/* Card Headers */
+.card-header {
+    background: rgba(255, 255, 255, 0.1) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2) !important;
+    color: #ffffff !important;
+    font-size: 1.5rem;
+    font-weight: 600;
+    padding: 1rem 1.5rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* Button and Input Styles */
+.btn {
+    height: 32px;
+    width: auto;
+    min-width: 32px;
+    padding: 0 12px;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 4px;
+    margin: 4px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Text fields/inputs */
+.form-control {
+    height: 32px;
+    padding: 0 12px;
+    font-size: 14px;
+    border-radius: 4px;
+    resize: none;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+/* Primary buttons */
+.btn-primary {
+    background: #ff5722;
+    border: none;
+    color: white;
+}
+
+.btn-primary:hover {
+    background: #f4511e;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Secondary buttons */
+.btn-secondary {
+    background: #ffffff;
+    border: 1px solid #e0e0e0;
+    color: #424242;
+}
+
+.btn-secondary:hover {
+    background: #f5f5f5;
+}
+
+/* Action buttons (Add Documents, etc) */
+.btn-action {
+    background: #1976d2;
+    color: white;
+    border: none;
+    padding: 0 12px;
+    height: 32px;
+}
+
+.btn-action:hover {
+    background: #1565c0;
+}
+
+/* Back button */
+.btn-back {
+    height: 28px;
+    width: auto;
+    min-width: 28px;
+    padding: 0 10px;
+    font-size: 13px;
+}
+
+/* Form groups */
+.form-group {
+    margin-bottom: 16px;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 8px;
+    color: #ffffff;
+    font-weight: 500;
+}
+
+/* Icon alignment in buttons */
+.btn i, 
+.btn .fas,
+.btn .far,
+.btn .fa {
+    font-size: 14px;
+    margin-right: 6px;
+}
+
+/* Center main titles */
+h1, h2, .main-title {
+    text-align: center !important;
+    width: 100% !important;
+    justify-content: center !important;
+    padding-left: 0 !important;
+}
+
+/* My Space title specific */
+.my-space-title {
+    text-align: center;
+    width: 100%;
+    justify-content: center;
+    margin-bottom: 2rem;
+    color: #ffffff !important;
+}
+
+.my-space-container h1,
+.my-space-container h2,
+.my-space-container .main-title,
+.my-space-container .my-space-title {
+    text-align: center !important;
+    width: 100% !important;
+    justify-content: center !important;
+    padding-left: 0 !important;
+}
+
+.my-space-container .btn {
+    height: 32px;
+    width: auto;
+    min-width: 32px;
+    padding: 0 12px;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 4px;
+    margin: 4px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background: #ffffff !important;
+    color: #1a237e !important;
+    border: 1px solid #e0e0e0 !important;
+}
+
+.my-space-container .btn:hover {
+    background: #f5f5f5 !important;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.my-space-container .btn-primary {
+    background: #ffffff !important;
+    border: 1px solid #e0e0e0 !important;
+    color: #1a237e !important;
+}
+
+.my-space-container .btn-secondary {
+    background: #ffffff !important;
+    border: 1px solid #e0e0e0 !important;
+    color: #1a237e !important;
+}
+
+.my-space-container .btn-action {
+    background: #ffffff !important;
+    color: #1a237e !important;
+    border: 1px solid #e0e0e0 !important;
+}
+
+.my-space-container .btn-back {
+    background: #ffffff !important;
+    color: #1a237e !important;
+    border: 1px solid #e0e0e0 !important;
+}
+
+.my-space-container .form-control {
+    height: 32px;
+    padding: 0 12px;
+    font-size: 14px;
+    border-radius: 4px;
+    resize: none;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+/* Override any inline styling with extremely high specificity for My Space */
+html body .my-space h4,
+html body .vccs-section h4,
+html body .study-documents h4,
+html body .my-plans h4,
+html body .study-materials h4,
+html body .my-documents h4,
+html body [class*="study-materials"] h4,
+html body [class*="my-documents"] h4,
+html body div[id*="study-materials"] h4,
+html body div[id*="my-documents"] h4,
+html body div[class*="study"] h4,
+html body div[class*="documents"] h4,
+html body div[class*="space"] h4,
+html body .vccs-section-title,
+html body .study-documents-title,
+html body .my-plans-title,
+html body .study-materials-title,
+html body .my-documents-title,
+html body h4[style*="color"],
+html body .my-space h4[style*="color"],
+html body .study-materials h4[style*="color"],
+html body .my-documents h4[style*="color"],
+html body [class*="study"] h4[style*="color"],
+html body [class*="documents"] h4[style*="color"],
+html body [class*="space"] h4[style*="color"],
+html body div[class*="mb"] h4 {
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+    fill: #ffffff !important;
+    stroke: #ffffff !important;
+    border-color: #ffffff !important;
+    caret-color: #ffffff !important;
+    text-decoration-color: #ffffff !important;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8) !important;
+    background: rgba(0, 0, 0, 0.3) !important;
+    padding: 15px !important;
+    margin-bottom: 25px !important;
+    border-left: 4px solid #4CAF50 !important;
+    border-radius: 8px !important;
+    display: block !important;
+    width: 100% !important;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important;
+    position: relative !important;
+    z-index: 1 !important;
+    font-size: 24px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.5px !important;
+}
+
+/* Ensure text remains white in all states for these elements */
+html body .my-space h4:hover,
+html body .study-materials h4:hover,
+html body .my-documents h4:hover,
+html body .vccs-section h4:hover,
+html body .study-documents h4:hover,
+html body .my-plans h4:hover,
+html body .my-space h4:active,
+html body .study-materials h4:active,
+html body .my-documents h4:active,
+html body .vccs-section h4:active,
+html body .study-documents h4:active,
+html body .my-plans h4:active,
+html body .my-space h4:focus,
+html body .study-materials h4:focus,
+html body .my-documents h4:focus,
+html body .vccs-section h4:focus,
+html body .study-documents h4:focus,
+html body .my-plans h4:focus {
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8) !important;
+}
+
+/* Remove any pseudo-elements for these elements */
+html body .my-space h4::before,
+html body .my-space h4::after,
+html body .study-materials h4::before,
+html body .study-materials h4::after,
+html body .my-documents h4::before,
+html body .my-documents h4::after,
+html body .vccs-section h4::before,
+html body .vccs-section h4::after,
+html body .study-documents h4::before,
+html body .study-documents h4::after,
+html body .my-plans h4::before,
+html body .my-plans h4::after {
+    display: none !important;
+    content: none !important;
+}
+
+/* Fix visibility for the Show Documents button in My Space */
+html body .show-documents-btn,
+html body button[id*="show-documents"],
+html body [class*="show-documents"],
+html body button[class*="show-document"],
+html body input[type="button"][class*="document"],
+html body .btn[class*="document"],
+html body .my-space button[class*="document"],
+html body .my-space .btn-primary,
+html body .documents-section .btn {
+    background-color: #ffffff !important; /* White background */
+    color: #1a237e !important; /* Dark blue text */
+    -webkit-text-fill-color: #1a237e !important;
+    border: 1px solid #e0e0e0 !important;
+    height: auto !important;
+    min-height: 32px !important;
+    padding: 6px 14px !important;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    border-radius: 4px !important;
+    margin: 8px 0 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1) !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+    position: relative !important;
+    z-index: 10 !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    width: auto !important;
+    min-width: 120px !important;
+    max-width: 200px !important;
+    text-transform: none !important;
+    letter-spacing: 0.5px !important;
+    line-height: 1.5 !important;
+}
+
+/* Button hover state - lighten background slightly */
+html body .show-documents-btn:hover,
+html body button[id*="show-documents"]:hover,
+html body [class*="show-documents"]:hover,
+html body button[class*="show-document"]:hover,
+html body input[type="button"][class*="document"]:hover,
+html body .btn[class*="document"]:hover,
+html body .my-space button[class*="document"]:hover,
+html body .my-space .btn-primary:hover,
+html body .documents-section .btn:hover {
+    background-color: #f5f5f5 !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Button active/pressed state */
+html body .show-documents-btn:active,
+html body button[id*="show-documents"]:active,
+html body [class*="show-documents"]:active,
+html body button[class*="show-document"]:active,
+html body input[type="button"][class*="document"]:active,
+html body .btn[class*="document"]:active,
+html body .my-documents button:active,
+html body .my-documents-section button:active,
+html body .study-documents button:active {
+    transform: translateY(0) !important;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* Add icon to button if needed */
+html body .show-documents-btn::before,
+html body button[id*="show-documents"]::before,
+html body [class*="show-documents"]::before {
+    content: "\f15c" !important; /* FontAwesome document icon */
+    font-family: "Font Awesome 5 Free", "FontAwesome" !important;
+    margin-right: 8px !important;
+    font-weight: 900 !important;
+}
